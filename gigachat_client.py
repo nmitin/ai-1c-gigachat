@@ -1,109 +1,129 @@
 """
-Клиент для работы с GigaChat API
-Токен читается из файла .env.tokens (обновляется через cron)
+Клиент для работы с GigaChat API.
+Токен читается из файла .env.tokens (обновляется cron-скриптом).
 """
+
 import os
 import requests
-import urllib3
+from pathlib import Path
 from dotenv import load_dotenv
 
-# Отключаем предупреждения о самоподписанном сертификате
+# Отключаем предупреждения о самоподписанных сертификатах
+import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-load_dotenv()
 
+class GigaChatClient:
+    """Клиент для взаимодействия с GigaChat API."""
 
-def get_token() -> str:
-    """
-    Читает токен из файла .env.tokens
-    Файл обновляется скриптом scripts/update_token.sh через cron
-    """
-    token_file = os.path.join(os.path.dirname(__file__), '.env.tokens')
+    def __init__(self):
+        self.project_dir = Path(__file__).parent
+        self._load_config()
 
-    if not os.path.exists(token_file):
-        raise RuntimeError(
-            "Токен не найден. Запустите: ./scripts/update_token.sh"
+    def _load_config(self):
+        """Загрузка конфигурации из .env файлов."""
+        # Основные настройки
+        load_dotenv(self.project_dir / ".env")
+        self.api_url = os.getenv(
+            "GIGACHAT_API_URL",
+            "https://gigachat.devices.sberbank.ru/api/v1"
         )
 
-    with open(token_file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if line.startswith('GIGACHAT_ACCESS_TOKEN='):
-                token = line.split('=', 1)[1]
-                if token:
-                    return token
+    def _get_token(self) -> str:
+        """Получение актуального токена из .env.tokens."""
+        tokens_file = self.project_dir / ".env.tokens"
 
-    raise RuntimeError("Токен не найден в файле .env.tokens")
+        if not tokens_file.exists():
+            raise RuntimeError(
+                "Файл .env.tokens не найден. "
+                "Запустите scripts/update_token.sh для получения токена."
+            )
 
+        load_dotenv(tokens_file, override=True)
+        token = os.getenv("GIGACHAT_ACCESS_TOKEN")
 
-def chat_completion(
-    messages: list,
-    model: str = "GigaChat",
-    temperature: float = 0.7,
-    max_tokens: int = 2048
-) -> str:
-    """
-    Отправляет запрос к GigaChat API
+        if not token:
+            raise RuntimeError(
+                "GIGACHAT_ACCESS_TOKEN не найден в .env.tokens. "
+                "Запустите scripts/update_token.sh"
+            )
 
-    Args:
-        messages: История сообщений [{"role": "system/user/assistant", "content": "..."}]
-        model: Модель (GigaChat, GigaChat-Pro, GigaChat-Max)
-        temperature: Креативность (0.0 - 1.0)
-        max_tokens: Максимальная длина ответа
+        return token
 
-    Returns:
-        Текст ответа от нейросети
+    def chat(
+        self,
+        user_message: str,
+        system_prompt: str | None = None,
+        model: str = "GigaChat",
+        temperature: float = 0.7,
+        max_tokens: int = 1024
+    ) -> str:
+        """
+        Отправка сообщения в GigaChat и получение ответа.
 
-    Raises:
-        RuntimeError: Если токен не найден или API вернул ошибку
-    """
-    token = get_token()
-    api_url = os.getenv(
-        'GIGACHAT_API_URL',
-        'https://gigachat.devices.sberbank.ru/api/v1'
-    )
+        Args:
+            user_message: Сообщение пользователя
+            system_prompt: Системный промпт (опционально)
+            model: Модель GigaChat (GigaChat, GigaChat-Pro, GigaChat-Max)
+            temperature: Температура генерации (0-2)
+            max_tokens: Максимальное количество токенов в ответе
 
-    response = requests.post(
-        f"{api_url}/chat/completions",
-        headers={
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {token}'
-        },
-        json={
+        Returns:
+            Текст ответа от модели
+        """
+        token = self._get_token()
+
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": user_message})
+
+        payload = {
             "model": model,
             "messages": messages,
             "temperature": temperature,
             "max_tokens": max_tokens
-        },
-        verify=False,  # GigaChat использует самоподписанный сертификат
-        timeout=120
-    )
+        }
 
-    # Обработка ошибок
-    if response.status_code == 401:
-        raise RuntimeError("Токен истёк или недействителен. Запустите update_token.sh")
-    elif response.status_code == 402:
-        raise RuntimeError("Недостаточно средств на балансе GigaChat")
-    elif response.status_code == 429:
-        raise RuntimeError("Превышен лимит запросов к GigaChat API")
+        response = requests.post(
+            f"{self.api_url}/chat/completions",
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            json=payload,
+            verify=False,  # GigaChat использует самоподписанный сертификат
+            timeout=60
+        )
 
-    response.raise_for_status()
-    data = response.json()
+        response.raise_for_status()
+        data = response.json()
 
-    return data['choices'][0]['message']['content']
+        return data["choices"][0]["message"]["content"]
+
+    def is_token_valid(self) -> bool:
+        """Проверка валидности токена."""
+        try:
+            token = self._get_token()
+            # Простой запрос для проверки токена
+            response = requests.get(
+                f"{self.api_url}/models",
+                headers={"Authorization": f"Bearer {token}"},
+                verify=False,
+                timeout=10
+            )
+            return response.status_code == 200
+        except Exception:
+            return False
 
 
-# Для тестирования модуля напрямую
-if __name__ == "__main__":
-    try:
-        token = get_token()
-        print(f"Токен найден: {token[:20]}...")
+# Синглтон для использования в приложении
+_client: GigaChatClient | None = None
 
-        # Тестовый запрос
-        result = chat_completion([
-            {"role": "user", "content": "Привет! Скажи одним предложением, кто ты?"}
-        ])
-        print(f"Ответ GigaChat: {result}")
-
-    except Exception as e:
-        print(f"Ошибка: {e}")
+def get_client() -> GigaChatClient:
+    """Получение экземпляра клиента (синглтон)."""
+    global _client
+    if _client is None:
+        _client = GigaChatClient()
+    return _client

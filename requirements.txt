@@ -5,6 +5,9 @@ uvicorn>=0.34.0
 # HTTP клиент
 requests>=2.32.0
 
+# Отключение предупреждений SSL
+urllib3>=2.0.0
+
 # Валидация и конфигурация
 pydantic>=2.10.0
 python-dotenv>=1.0.0

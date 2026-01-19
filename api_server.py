@@ -1,107 +1,141 @@
 """
-FastAPI сервер для интеграции 1С с GigaChat
+FastAPI сервер для интеграции 1С с GigaChat.
+Предоставляет REST API для анализа текста.
 """
-from fastapi import FastAPI
-from pydantic import BaseModel
-import gigachat_client
+
+import os
+from contextlib import asynccontextmanager
+
+import uvicorn
+from dotenv import load_dotenv
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
+
+from gigachat_client import get_client, GigaChatClient
+
+load_dotenv()
+
+
+class TextAnalysisRequest(BaseModel):
+    """Запрос на анализ текста."""
+    text: str = Field(..., description="Текст для анализа", min_length=1)
+    system_prompt: str = Field(
+        default="Ты — полезный ассистент. Отвечай кратко и по существу.",
+        description="Системный промпт для модели"
+    )
+    model: str = Field(
+        default="GigaChat",
+        description="Модель: GigaChat, GigaChat-Pro, GigaChat-Max"
+    )
+    temperature: float = Field(
+        default=0.7,
+        ge=0,
+        le=2,
+        description="Температура генерации (0-2)"
+    )
+    max_tokens: int = Field(
+        default=1024,
+        ge=1,
+        le=8192,
+        description="Максимум токенов в ответе"
+    )
+
+
+class TextAnalysisResponse(BaseModel):
+    """Ответ с результатом анализа."""
+    result: str = Field(..., description="Результат анализа от GigaChat")
+    model: str = Field(..., description="Использованная модель")
+
+
+class HealthResponse(BaseModel):
+    """Ответ проверки здоровья сервиса."""
+    status: str
+    token_valid: bool
+    message: str
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Жизненный цикл приложения."""
+    # Проверяем токен при старте
+    client = get_client()
+    if client.is_token_valid():
+        print("✓ GigaChat токен валиден")
+    else:
+        print("⚠ GigaChat токен невалиден или отсутствует")
+        print("  Запустите: ./scripts/update_token.sh")
+    yield
+
 
 app = FastAPI(
     title="GigaChat API для 1С",
-    description="REST API для интеграции 1С с GigaChat",
-    version="1.0.0"
+    description="REST API сервис для интеграции 1С с GigaChat",
+    version="1.0.0",
+    lifespan=lifespan
 )
 
 
-class AnalyzeRequest(BaseModel):
-    """Запрос на анализ текста"""
-    text: str
-    system_prompt: str = "Ты - полезный ассистент. Отвечай кратко и по делу."
-    return_format: str = "text"  # text или html
+@app.get("/health", response_model=HealthResponse, tags=["Системные"])
+async def health_check():
+    """Проверка состояния сервиса и валидности токена."""
+    client = get_client()
+    token_valid = client.is_token_valid()
+
+    return HealthResponse(
+        status="ok" if token_valid else "degraded",
+        token_valid=token_valid,
+        message="Сервис работает" if token_valid else "Токен невалиден"
+    )
 
 
-class AnalyzeResponse(BaseModel):
-    """Ответ с результатом анализа"""
-    success: bool
-    result: str
-    error: str | None = None
-
-
-@app.get("/")
-def root():
-    """Корневой endpoint"""
-    return {
-        "service": "GigaChat API для 1С",
-        "version": "1.0.0",
-        "docs": "/docs"
-    }
-
-
-@app.get("/health")
-def health():
-    """Проверка состояния сервера и доступности токена"""
-    try:
-        gigachat_client.get_token()
-        return {"status": "ok", "gigachat": True}
-    except Exception as e:
-        return {"status": "degraded", "gigachat": False, "error": str(e)}
-
-
-@app.post("/analyze/text", response_model=AnalyzeResponse)
-def analyze_text(req: AnalyzeRequest):
+@app.post(
+    "/analyze/text",
+    response_model=TextAnalysisResponse,
+    tags=["Анализ"],
+    summary="Анализ текста через GigaChat"
+)
+async def analyze_text(request: TextAnalysisRequest):
     """
-    Анализ текста с помощью GigaChat
+    Отправляет текст в GigaChat для анализа.
 
-    - **text**: Текст для анализа
-    - **system_prompt**: Системный промпт (инструкция для ИИ)
-    - **return_format**: Формат ответа - text или html
+    Примеры использования:
+    - Классификация обращений пациентов
+    - Извлечение данных из текста
+    - Суммаризация документов
+    - Ответы на вопросы по контексту
     """
+    client = get_client()
+
     try:
-        messages = [
-            {"role": "system", "content": req.system_prompt},
-            {"role": "user", "content": req.text}
-        ]
+        result = client.chat(
+            user_message=request.text,
+            system_prompt=request.system_prompt,
+            model=request.model,
+            temperature=request.temperature,
+            max_tokens=request.max_tokens
+        )
 
-        result = gigachat_client.chat_completion(messages)
+        return TextAnalysisResponse(
+            result=result,
+            model=request.model
+        )
 
-        # Форматируем в HTML если нужно
-        if req.return_format == "html":
-            result = format_as_html(result)
-
-        return AnalyzeResponse(success=True, result=result)
-
+    except RuntimeError as e:
+        raise HTTPException(status_code=503, detail=str(e))
     except Exception as e:
-        return AnalyzeResponse(success=False, result="", error=str(e))
-
-
-def format_as_html(text: str) -> str:
-    """Оборачивает текст в HTML для отображения в 1С"""
-    # Экранируем HTML-символы
-    text = text.replace("&", "&amp;")
-    text = text.replace("<", "&lt;")
-    text = text.replace(">", "&gt;")
-
-    # Заменяем переносы строк на <br>
-    text = text.replace("\n", "<br>\n")
-
-    return f"""<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <style>
-        body {{
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            line-height: 1.6;
-            color: #333;
-        }}
-    </style>
-</head>
-<body>
-{text}
-</body>
-</html>"""
+        raise HTTPException(
+            status_code=500,
+            detail=f"Ошибка при обращении к GigaChat: {str(e)}"
+        )
 
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    host = os.getenv("API_HOST", "0.0.0.0")
+    port = int(os.getenv("API_PORT", "8000"))
+
+    uvicorn.run(
+        "api_server:app",
+        host=host,
+        port=port,
+        reload=True
+    )
