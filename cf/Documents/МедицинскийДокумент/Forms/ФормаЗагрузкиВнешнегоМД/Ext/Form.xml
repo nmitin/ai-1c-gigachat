@@ -1,0 +1,1457 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Загрузка внешнего медицинского документа</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗагрузитьДокумент" id="144">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗагрузитьДокумент</CommandName>
+				<ExtendedTooltip name="ФормаЗагрузитьДокументРасширеннаяПодсказка" id="145"/>
+			</Button>
+			<Button name="ФормаЗагрузитьЕщеОдинДокумент" id="151">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗагрузитьЕщеОдинДокумент</CommandName>
+				<ExtendedTooltip name="ФормаЗагрузитьЕщеОдинДокументРасширеннаяПодсказка" id="152"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПутьКФайлу" id="149">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа путь к файлу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа путь к файлу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПутьКФайлуРасширеннаяПодсказка" id="150"/>
+			<ChildItems>
+				<InputField name="ПутьКФайлу" id="138">
+					<DataPath>ПутьКФайлу</DataPath>
+					<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+					<TitleLocation>Top</TitleLocation>
+					<ChoiceButton>true</ChoiceButton>
+					<ContextMenu name="ПутьКФайлуКонтекстноеМеню" id="139"/>
+					<ExtendedTooltip name="ПутьКФайлуРасширеннаяПодсказка" id="140"/>
+					<Events>
+						<Event name="OnChange">ПутьКФайлуПриИзменении</Event>
+						<Event name="StartChoice">ПутьКФайлуНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<LabelField name="СозданныйМедицинскийДокумент" id="146">
+					<DataPath>СозданныйМедицинскийДокумент</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="СозданныйМедицинскийДокументКонтекстноеМеню" id="147"/>
+					<ExtendedTooltip name="СозданныйМедицинскийДокументРасширеннаяПодсказка" id="148"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<LabelDecoration name="НадписьПредупреждение" id="141">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>style:SpecialTextColor</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбран файл отличный от формата pdf и cda, загружаемый документ не будет отправлен в региональную ИЭМК.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="НадписьПредупреждениеКонтекстноеМеню" id="142"/>
+			<ExtendedTooltip name="НадписьПредупреждениеРасширеннаяПодсказка" id="143"/>
+		</LabelDecoration>
+		<Pages name="ГруппаСтраницы" id="126">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="127"/>
+			<ChildItems>
+				<Page name="ГруппаСтраницаОсновное" id="128">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основные сведения о документе</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страница основное</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСтраницаОсновноеРасширеннаяПодсказка" id="129"/>
+					<ChildItems>
+						<InputField name="ВнешняяОрганизация" id="1">
+							<DataPath>ВнешняяОрганизация</DataPath>
+							<ContextMenu name="ВнешняяОрганизацияКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="ВнешняяОрганизацияРасширеннаяПодсказка" id="3"/>
+						</InputField>
+						<InputField name="ДатаМД" id="4">
+							<DataPath>ДатаМД</DataPath>
+							<Width>14</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ДатаМДКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ДатаМДРасширеннаяПодсказка" id="6"/>
+						</InputField>
+						<InputField name="ТипМД" id="10">
+							<DataPath>ТипМД</DataPath>
+							<ContextMenu name="ТипМДКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ТипМДРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<InputField name="Заголовок" id="7">
+							<DataPath>ЗаголовокМД</DataPath>
+							<ContextMenu name="ЗаголовокКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ЗаголовокРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<InputField name="Пациент" id="132">
+							<DataPath>Пациент</DataPath>
+							<ContextMenu name="ПациентКонтекстноеМеню" id="133"/>
+							<ExtendedTooltip name="ПациентРасширеннаяПодсказка" id="134"/>
+							<Events>
+								<Event name="OnChange">ПациентПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="МедицинскаяКарта" id="135">
+							<DataPath>МедицинскаяКарта</DataPath>
+							<ContextMenu name="МедицинскаяКартаКонтекстноеМеню" id="136"/>
+							<ExtendedTooltip name="МедицинскаяКартаРасширеннаяПодсказка" id="137"/>
+							<Events>
+								<Event name="OnChange">МедицинскаяКартаПриИзменении</Event>
+								<Event name="StartChoice">МедицинскаяКартаНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаСтраницаДиагнозы" id="130">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Диагнозы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страница диагнозы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<TitleDataPath>КоличествоДиагнозов</TitleDataPath>
+					<ExtendedTooltip name="ГруппаСтраницаДиагнозыРасширеннаяПодсказка" id="131"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаДиагнозы" id="41">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Диагнозы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа диагнозы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Collapsed>true</Collapsed>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаДиагнозыРасширеннаяПодсказка" id="42"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаДиагнозыЛево" id="43">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа диагнозы лево</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа диагнозы лево</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДиагнозыЛевоРасширеннаяПодсказка" id="44"/>
+									<ChildItems>
+										<Table name="ДиагнозыПоМКБ10" id="13">
+											<Representation>List</Representation>
+											<Height>5</Height>
+											<AutoMaxHeight>false</AutoMaxHeight>
+											<HeightInTableRows>10</HeightInTableRows>
+											<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<DataPath>ДиагнозыПоМКБ10</DataPath>
+											<CommandSet>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>CancelSearch</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>Find</ExcludedCommand>
+												<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>OutputList</ExcludedCommand>
+												<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+												<ExcludedCommand>SearchHistory</ExcludedCommand>
+												<ExcludedCommand>SelectAll</ExcludedCommand>
+												<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+												<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+												<ExcludedCommand>SortListAsc</ExcludedCommand>
+												<ExcludedCommand>SortListDesc</ExcludedCommand>
+											</CommandSet>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ДиагнозыПоМКБ10КонтекстноеМеню" id="14"/>
+											<AutoCommandBar name="ДиагнозыПоМКБ10КоманднаяПанель" id="15">
+												<Autofill>false</Autofill>
+											</AutoCommandBar>
+											<ExtendedTooltip name="ДиагнозыПоМКБ10РасширеннаяПодсказка" id="16"/>
+											<SearchStringAddition name="ДиагнозыПоМКБ10СтрокаПоиска" id="17">
+												<AdditionSource>
+													<Item>ДиагнозыПоМКБ10</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ДиагнозыПоМКБ10СтрокаПоискаКонтекстноеМеню" id="18"/>
+												<ExtendedTooltip name="ДиагнозыПоМКБ10СтрокаПоискаРасширеннаяПодсказка" id="19"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ДиагнозыПоМКБ10СостояниеПросмотра" id="20">
+												<AdditionSource>
+													<Item>ДиагнозыПоМКБ10</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ДиагнозыПоМКБ10СостояниеПросмотраКонтекстноеМеню" id="21"/>
+												<ExtendedTooltip name="ДиагнозыПоМКБ10СостояниеПросмотраРасширеннаяПодсказка" id="22"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ДиагнозыПоМКБ10УправлениеПоиском" id="23">
+												<AdditionSource>
+													<Item>ДиагнозыПоМКБ10</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ДиагнозыПоМКБ10УправлениеПоискомКонтекстноеМеню" id="24"/>
+												<ExtendedTooltip name="ДиагнозыПоМКБ10УправлениеПоискомРасширеннаяПодсказка" id="25"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="OnChange">ДиагнозыПоМКБ10ПриИзменении</Event>
+											</Events>
+											<ChildItems>
+												<InputField name="ДиагнозыПоМКБ10МКБ10" id="26">
+													<DataPath>ДиагнозыПоМКБ10.МКБ10.Code</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>МКБ10</v8:content>
+														</v8:item>
+													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ДиагнозыПоМКБ10МКБ10КонтекстноеМеню" id="27"/>
+													<ExtendedTooltip name="ДиагнозыПоМКБ10МКБ10РасширеннаяПодсказка" id="28"/>
+												</InputField>
+												<InputField name="ДиагнозыПоМКБ10ТипДиагноза" id="29">
+													<DataPath>ДиагнозыПоМКБ10.ТипДиагноза</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ListChoiceMode>true</ListChoiceMode>
+													<ChoiceList>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.ОсновноеЗаболевание</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.СопутствующееЗаболевание</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.ОсложнениеСопутствующегоЗаболевания</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.КонкурирующееЗаболевание</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.ВнешниеПричиныЗаболеваемостиИСмертности</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.ФоновоеЗаболевание</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.ОсложнениеСопутствующегоЗаболевания</Value>
+															</xr:Value>
+														</xr:Item>
+													</ChoiceList>
+													<ContextMenu name="ДиагнозыПоМКБ10ТипДиагнозаКонтекстноеМеню" id="30"/>
+													<ExtendedTooltip name="ДиагнозыПоМКБ10ТипДиагнозаРасширеннаяПодсказка" id="31"/>
+												</InputField>
+												<InputField name="ДиагнозыПоМКБ10ХарактерЗаболевания" id="32">
+													<DataPath>ДиагнозыПоМКБ10.ХарактерЗаболевания</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ДиагнозыПоМКБ10ХарактерЗаболеванияКонтекстноеМеню" id="33"/>
+													<ExtendedTooltip name="ДиагнозыПоМКБ10ХарактерЗаболеванияРасширеннаяПодсказка" id="34"/>
+												</InputField>
+												<InputField name="ДиагнозыПоМКБ10СтепеньОбоснованностиДиагноза" id="35">
+													<DataPath>ДиагнозыПоМКБ10.СтепеньОбоснованностиДиагноза</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ListChoiceMode>true</ListChoiceMode>
+													<ChoiceList>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.ПредварительныйДиагноз</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.ПатологоанатомическийДиагноз</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.ЗаключительныйКлиническийДиагноз</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.ЭтапныйКлиническийДиагноз</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыДиагнозовПациента.EnumValue.СудебноМедицинскийДиагноз</Value>
+															</xr:Value>
+														</xr:Item>
+													</ChoiceList>
+													<ContextMenu name="ДиагнозыПоМКБ10СтепеньОбоснованностиДиагнозаКонтекстноеМеню" id="36"/>
+													<ExtendedTooltip name="ДиагнозыПоМКБ10СтепеньОбоснованностиДиагнозаРасширеннаяПодсказка" id="37"/>
+												</InputField>
+												<InputField name="ДиагнозыПоМКБ10КлиническийДиагноз" id="38">
+													<DataPath>ДиагнозыПоМКБ10.КлиническийДиагноз</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ДиагнозыПоМКБ10КлиническийДиагнозКонтекстноеМеню" id="39"/>
+													<ExtendedTooltip name="ДиагнозыПоМКБ10КлиническийДиагнозРасширеннаяПодсказка" id="40"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаДиагнозыПраво" id="45">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа диагнозы право</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа диагнозы лево</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДиагнозыПравоРасширеннаяПодсказка" id="46"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаФильтры" id="47">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа фильтры</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа фильтры</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаФильтрыExtendedTooltip" id="48"/>
+											<ChildItems>
+												<CommandBar name="ГруппаКоманднаяПанель" id="49">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа командная панель</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа командная панель</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="50"/>
+													<ChildItems>
+														<Button name="Выбрать" id="51">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Command.Выбрать</CommandName>
+															<ExtendedTooltip name="ВыбратьExtendedTooltip" id="52"/>
+														</Button>
+														<Button name="УстановитьИерархию" id="53">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Command.УстановитьИерархию</CommandName>
+															<ExtendedTooltip name="УстановитьИерархиюExtendedTooltip" id="54"/>
+														</Button>
+														<Button name="КомандаИзбранное" id="55">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Command.КомандаИзбранное</CommandName>
+															<ExtendedTooltip name="КомандаИзбранноеExtendedTooltip" id="56"/>
+														</Button>
+														<Button name="КомандаНастроитьИзбранное" id="57">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Command.КомандаНастроитьИзбранное</CommandName>
+															<ExtendedTooltip name="КомандаНастроитьИзбранноеExtendedTooltip" id="58"/>
+														</Button>
+													</ChildItems>
+												</CommandBar>
+												<UsualGroup name="ГруппаФильтрКодИНаименование" id="61">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа фильтр код и наименование</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа фильтр код и наименование</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаФильтрКодИНаименованиеExtendedTooltip" id="62"/>
+													<ChildItems>
+														<InputField name="ФильтрКод" id="63">
+															<DataPath>ФильтрКод</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<HorizontalStretch>false</HorizontalStretch>
+															<ClearButton>true</ClearButton>
+															<ContextMenu name="ФильтрКодКонтекстноеМеню" id="64"/>
+															<ExtendedTooltip name="ФильтрКодExtendedTooltip" id="65"/>
+															<Events>
+																<Event name="OnChange">ФильтрКодПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="ФильтрНаименование" id="66">
+															<DataPath>ФильтрНаименование</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<HorizontalStretch>false</HorizontalStretch>
+															<ClearButton>true</ClearButton>
+															<ContextMenu name="ФильтрНаименованиеКонтекстноеМеню" id="67"/>
+															<ExtendedTooltip name="ФильтрНаименованиеExtendedTooltip" id="68"/>
+															<Events>
+																<Event name="OnChange">ФильтрНаименованиеПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаОформление" id="69">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа оформление</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Оформление</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаОформлениеРасширеннаяПодсказка" id="70"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаДинПоле" id="71">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа дин поле</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа дин поле</v8:content>
+												</v8:item>
+											</ToolTip>
+											<HorizontalStretch>true</HorizontalStretch>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДинПолеExtendedTooltip" id="72"/>
+											<ChildItems>
+												<Table name="ДинамическоеПолеМКБ" id="73">
+													<Representation>List</Representation>
+													<Visible>false</Visible>
+													<UseAlternationRowColor>true</UseAlternationRowColor>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ДинамическоеПолеМКБ10</DataPath>
+													<RowPictureDataPath>ДинамическоеПолеМКБ10.DefaultPicture</RowPictureDataPath>
+													<CommandSet>
+														<ExcludedCommand>Change</ExcludedCommand>
+														<ExcludedCommand>Copy</ExcludedCommand>
+														<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+														<ExcludedCommand>Create</ExcludedCommand>
+														<ExcludedCommand>Delete</ExcludedCommand>
+														<ExcludedCommand>HierarchicalList</ExcludedCommand>
+														<ExcludedCommand>LevelDown</ExcludedCommand>
+														<ExcludedCommand>LevelUp</ExcludedCommand>
+														<ExcludedCommand>ListSettings</ExcludedCommand>
+														<ExcludedCommand>MoveItem</ExcludedCommand>
+														<ExcludedCommand>OutputList</ExcludedCommand>
+														<ExcludedCommand>Refresh</ExcludedCommand>
+														<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+													</CommandSet>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<AutoRefresh>false</AutoRefresh>
+													<AutoRefreshPeriod>60</AutoRefreshPeriod>
+													<Period>
+														<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+														<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+														<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+													</Period>
+													<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+													<RestoreCurrentRow>false</RestoreCurrentRow>
+													<TopLevelParent xsi:nil="true"/>
+													<ShowRoot>false</ShowRoot>
+													<AllowRootChoice>false</AllowRootChoice>
+													<UpdateOnDataChange>Auto</UpdateOnDataChange>
+													<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+													<ContextMenu name="ДинамическоеПолеМКБКонтекстноеМеню" id="74"/>
+													<AutoCommandBar name="ДинамическоеПолеМКБКоманднаяПанель" id="75">
+														<Autofill>false</Autofill>
+													</AutoCommandBar>
+													<ExtendedTooltip name="ДинамическоеПолеМКБРасширеннаяПодсказка" id="76"/>
+													<SearchStringAddition name="ДинамическоеПолеМКБСтрокаПоиска" id="77">
+														<AdditionSource>
+															<Item>ДинамическоеПолеМКБ</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДинамическоеПолеМКБСтрокаПоискаКонтекстноеМеню" id="78"/>
+														<ExtendedTooltip name="ДинамическоеПолеМКБСтрокаПоискаРасширеннаяПодсказка" id="79"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ДинамическоеПолеМКБСостояниеПросмотра" id="80">
+														<AdditionSource>
+															<Item>ДинамическоеПолеМКБ</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДинамическоеПолеМКБСостояниеПросмотраКонтекстноеМеню" id="81"/>
+														<ExtendedTooltip name="ДинамическоеПолеМКБСостояниеПросмотраРасширеннаяПодсказка" id="82"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ДинамическоеПолеМКБУправлениеПоиском" id="83">
+														<AdditionSource>
+															<Item>ДинамическоеПолеМКБ</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ДинамическоеПолеМКБУправлениеПоискомКонтекстноеМеню" id="84"/>
+														<ExtendedTooltip name="ДинамическоеПолеМКБУправлениеПоискомРасширеннаяПодсказка" id="85"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="Selection">ДинамическоеПолеМКБ10Выбор</Event>
+													</Events>
+													<ChildItems>
+														<LabelField name="ДинамическоеПолеМКБКод" id="114">
+															<DataPath>ДинамическоеПолеМКБ10.Код</DataPath>
+															<ContextMenu name="ДинамическоеПолеМКБКодКонтекстноеМеню" id="115"/>
+															<ExtendedTooltip name="ДинамическоеПолеМКБКодРасширеннаяПодсказка" id="116"/>
+														</LabelField>
+														<LabelField name="ДинамическоеПолеМКБНаименование" id="117">
+															<DataPath>ДинамическоеПолеМКБ10.Наименование</DataPath>
+															<ContextMenu name="ДинамическоеПолеМКБНаименованиеКонтекстноеМеню" id="118"/>
+															<ExtendedTooltip name="ДинамическоеПолеМКБНаименованиеРасширеннаяПодсказка" id="119"/>
+														</LabelField>
+													</ChildItems>
+												</Table>
+												<Table name="ДинамическоеПолеМКБ10Избранное" id="92">
+													<Representation>Tree</Representation>
+													<HeightInTableRows>10</HeightInTableRows>
+													<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+													<UseAlternationRowColor>true</UseAlternationRowColor>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ДинамическоеПолеМКБ10Избранное</DataPath>
+													<RowPictureDataPath>~ДинамическоеПолеМКБ10Избранное.Лупа</RowPictureDataPath>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<AutoRefresh>false</AutoRefresh>
+													<AutoRefreshPeriod>60</AutoRefreshPeriod>
+													<Period>
+														<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+														<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+														<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+													</Period>
+													<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+													<RestoreCurrentRow>false</RestoreCurrentRow>
+													<TopLevelParent xsi:nil="true"/>
+													<ShowRoot>false</ShowRoot>
+													<AllowRootChoice>false</AllowRootChoice>
+													<UpdateOnDataChange>Auto</UpdateOnDataChange>
+													<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+													<ContextMenu name="ДинамическоеПолеМКБ10ИзбранноеКонтекстноеМеню" id="93"/>
+													<AutoCommandBar name="ДинамическоеПолеМКБ10ИзбранноеКоманднаяПанель" id="94">
+														<Autofill>false</Autofill>
+													</AutoCommandBar>
+													<ExtendedTooltip name="ДинамическоеПолеМКБ10ИзбранноеРасширеннаяПодсказка" id="95"/>
+													<SearchStringAddition name="ДинамическоеПолеМКБ10ИзбранноеСтрокаПоиска" id="96">
+														<AdditionSource>
+															<Item>ДинамическоеПолеМКБ10Избранное</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДинамическоеПолеМКБ10ИзбранноеСтрокаПоискаКонтекстноеМеню" id="97"/>
+														<ExtendedTooltip name="ДинамическоеПолеМКБ10ИзбранноеСтрокаПоискаРасширеннаяПодсказка" id="98"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ДинамическоеПолеМКБ10ИзбранноеСостояниеПросмотра" id="99">
+														<AdditionSource>
+															<Item>ДинамическоеПолеМКБ10Избранное</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДинамическоеПолеМКБ10ИзбранноеСостояниеПросмотраКонтекстноеМеню" id="100"/>
+														<ExtendedTooltip name="ДинамическоеПолеМКБ10ИзбранноеСостояниеПросмотраРасширеннаяПодсказка" id="101"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ДинамическоеПолеМКБ10ИзбранноеУправлениеПоиском" id="102">
+														<AdditionSource>
+															<Item>ДинамическоеПолеМКБ10Избранное</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ДинамическоеПолеМКБ10ИзбранноеУправлениеПоискомКонтекстноеМеню" id="103"/>
+														<ExtendedTooltip name="ДинамическоеПолеМКБ10ИзбранноеУправлениеПоискомРасширеннаяПодсказка" id="104"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="Selection">ДинамическоеПолеМКБ10Выбор</Event>
+													</Events>
+													<ChildItems>
+														<LabelField name="ДинамическоеПолеМКБ10ИзбранноеКод" id="105">
+															<DataPath>ДинамическоеПолеМКБ10Избранное.Код</DataPath>
+															<FixingInTable>Left</FixingInTable>
+															<Width>6</Width>
+															<ContextMenu name="ДинамическоеПолеМКБ10ИзбранноеКодКонтекстноеМеню" id="106"/>
+															<ExtendedTooltip name="ДинамическоеПолеМКБ10ИзбранноеКодExtendedTooltip" id="107"/>
+														</LabelField>
+														<LabelField name="ДинамическоеПолеМКБ10ИзбранноеНаименование" id="108">
+															<DataPath>ДинамическоеПолеМКБ10Избранное.Наименование</DataPath>
+															<ContextMenu name="ДинамическоеПолеМКБ10ИзбранноеНаименованиеКонтекстноеМеню" id="109"/>
+															<ExtendedTooltip name="ДинамическоеПолеМКБ10ИзбранноеНаименованиеExtendedTooltip" id="110"/>
+														</LabelField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаСтраницаЗагруженныеДокументы" id="153">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Загруженные документы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список загруженных документов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<TitleDataPath>КоличествоЗагруженныхДокументов</TitleDataPath>
+					<ExtendedTooltip name="ГруппаСтраницаЗагруженныеДокументыРасширеннаяПодсказка" id="154"/>
+					<ChildItems>
+						<Table name="ЗагруженныеДокументы" id="155">
+							<Representation>List</Representation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<Height>5</Height>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<HeightInTableRows>10</HeightInTableRows>
+							<HeightControlVariant>UseHeightInTableRows</HeightControlVariant>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>ЗагруженныеДокументы</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ЗагруженныеДокументыКонтекстноеМеню" id="156"/>
+							<AutoCommandBar name="ЗагруженныеДокументыКоманднаяПанель" id="157">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ЗагруженныеДокументыРасширеннаяПодсказка" id="158"/>
+							<SearchStringAddition name="ЗагруженныеДокументыСтрокаПоиска" id="159">
+								<AdditionSource>
+									<Item>ЗагруженныеДокументы</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗагруженныеДокументыСтрокаПоискаКонтекстноеМеню" id="160"/>
+								<ExtendedTooltip name="ЗагруженныеДокументыСтрокаПоискаРасширеннаяПодсказка" id="161"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЗагруженныеДокументыСостояниеПросмотра" id="162">
+								<AdditionSource>
+									<Item>ЗагруженныеДокументы</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗагруженныеДокументыСостояниеПросмотраКонтекстноеМеню" id="163"/>
+								<ExtendedTooltip name="ЗагруженныеДокументыСостояниеПросмотраРасширеннаяПодсказка" id="164"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЗагруженныеДокументыУправлениеПоиском" id="165">
+								<AdditionSource>
+									<Item>ЗагруженныеДокументы</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗагруженныеДокументыУправлениеПоискомКонтекстноеМеню" id="166"/>
+								<ExtendedTooltip name="ЗагруженныеДокументыУправлениеПоискомРасширеннаяПодсказка" id="167"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ЗагруженныеДокументыСозданныйДокумент" id="168">
+									<DataPath>ЗагруженныеДокументы.СозданныйДокумент</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<OpenButton>false</OpenButton>
+									<ContextMenu name="ЗагруженныеДокументыСозданныйДокументКонтекстноеМеню" id="169"/>
+									<ExtendedTooltip name="ЗагруженныеДокументыСозданныйДокументРасширеннаяПодсказка" id="170"/>
+								</InputField>
+								<InputField name="ЗагруженныеДокументыПутьКфайлу" id="171">
+									<DataPath>ЗагруженныеДокументы.ПутьКфайлу</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЗагруженныеДокументыПутьКфайлуКонтекстноеМеню" id="172"/>
+									<ExtendedTooltip name="ЗагруженныеДокументыПутьКфайлуРасширеннаяПодсказка" id="173"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ЗаголовокМД" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок МД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДатаМД" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата МД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ВнешняяОрганизация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Внешняя организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВнешниеОрганизации</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ТипМД" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип МД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ТипыМД</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ДиагнозыПоМКБ10" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Диагнозы по МКБ10</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="МКБ10" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>МКБ10</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.МКБ10</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТипДиагноза" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип диагноза</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ТипыДиагнозовПациента</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ХарактерЗаболевания" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характер заболевания</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ХарактерЗаболеваний</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СтепеньОбоснованностиДиагноза" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Степень обоснованности диагноза</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ТипыДиагнозовПациента</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КлиническийДиагноз" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Клинический диагноз</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДинамическоеПолеМКБ10Избранное" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Динамическое поле МКБ10</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~ДинамическоеПолеМКБ10Избранное.Лупа</Field>
+				<Field>ДинамическоеПолеМКБ10Избранное.Код</Field>
+				<Field>ДинамическоеПолеМКБ10Избранное.Наименование</Field>
+				<Field>ДинамическоеПолеМКБ10Избранное.ЭлементМКБ10</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	МКБ10Избранное.Ссылка,
+	МКБ10Избранное.ЭтоГруппа,
+	МКБ10Избранное.Код,
+	МКБ10Избранное.Наименование,
+	МКБ10Избранное.ЭлементМКБ10
+ИЗ
+	Справочник.МКБ10Избранное КАК МКБ10Избранное
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.МКБ10 КАК МКБ10
+		ПО МКБ10Избранное.ЭлементМКБ10 = МКБ10.Ссылка
+ГДЕ
+	МКБ10.ВАрхиве = ЛОЖЬ</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИспользоватьВКоманднойПанеле</dcssch:dataPath>
+					<dcssch:field>ИспользоватьВКоманднойПанеле</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭлементМКБ10</dcssch:dataPath>
+					<dcssch:field>ЭлементМКБ10</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоГруппа</dcssch:dataPath>
+					<dcssch:field>ЭтоГруппа</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Владелец</dcssch:dataPath>
+					<dcssch:field>Владелец</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Родитель</dcssch:dataPath>
+					<dcssch:field>Родитель</dcssch:field>
+				</Field>
+				<MainTable>Catalog.МКБ10Избранное</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДинамическоеПолеМКБ10" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Динамическое поле МКБ10</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~ДинамическоеПолеМКБ10.Code</Field>
+				<Field>~ДинамическоеПолеМКБ10.Description</Field>
+				<Field>~ДинамическоеПолеМКБ10.Лупа</Field>
+				<Field>ДинамическоеПолеМКБ10.ИспользуетсяВОМС</Field>
+				<Field>ДинамическоеПолеМКБ10.СсылкаМКБ</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	МКБ10.Ссылка КАК СсылкаМКБ,
+	ЛОЖЬ КАК ЭтоГруппа,
+	МКБ10.Код КАК Код,
+	МКБ10.Наименование КАК Наименование,
+	МКБ10.ИспользуетсяВОМС КАК ИспользуетсяВОМС
+ИЗ
+	Справочник.МКБ10 КАК МКБ10
+ГДЕ
+	МКБ10.ВАрхиве = ЛОЖЬ</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Родитель</dcssch:dataPath>
+					<dcssch:field>Родитель</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДополнительныйКод</dcssch:dataPath>
+					<dcssch:field>ДополнительныйКод</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВерсияКлассификатораМинздрава</dcssch:dataPath>
+					<dcssch:field>ВерсияКлассификатораМинздрава</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВАрхиве</dcssch:dataPath>
+					<dcssch:field>ВАрхиве</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИспользуетсяВОМС</dcssch:dataPath>
+					<dcssch:field>ИспользуетсяВОМС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>OIDКлассификатораМинздрава</dcssch:dataPath>
+					<dcssch:field>OIDКлассификатораМинздрава</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИдентификаторНаДиске</dcssch:dataPath>
+					<dcssch:field>ИдентификаторНаДиске</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КодМинздрава</dcssch:dataPath>
+					<dcssch:field>КодМинздрава</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НаименованиеПолное</dcssch:dataPath>
+					<dcssch:field>НаименованиеПолное</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СсылкаМКБ</dcssch:dataPath>
+					<dcssch:field>СсылкаМКБ</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка МКБ</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоГруппа</dcssch:dataPath>
+					<dcssch:field>ЭтоГруппа</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это группа</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<MainTable>Catalog.МКБ10</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ФильтрКод" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр код</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФильтрНаименование" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр наименование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Пациент" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пациент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Картотека</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="МедицинскаяКарта" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Медицинская карта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.МедицинскиеКарты</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПутьКФайлу" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Путь к файлу загружаемого документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="СозданныйМедицинскийДокумент" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Медицинский документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.МедицинскийДокумент</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоДиагнозов" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество диагнозов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипВыбранногоФайла" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип выбранного файла</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ФорматФайлаДляРЭМД</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗагруженныеДокументы" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загруженные документы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="СозданныйДокумент" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Созданный документ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.МедицинскийДокумент</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПутьКфайлу" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путь кфайлу</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="КоличествоЗагруженныхДокументов" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество загруженных документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьИерархию" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Иерархия</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить иерархию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ListViewMode</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьИерархию</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаИзбранное" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Избранное</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Избранное</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GotoURL</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаИзбранное</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаНастроитьИзбранное" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить избранное</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить избранное</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.AddToFavorites</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаНастроитьИзбранное</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗагрузитьДокумент" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить документ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗагрузитьДокумент</Action>
+		</Command>
+		<Command name="ЗагрузитьЕщеОдинДокумент" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить еще один документ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить еще один документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗагрузитьЕщеОдинДокумент</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="МедицинскаяКартаИлиПациент">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Картотека</v8:Type>
+				<v8:Type>cfg:CatalogRef.МедицинскиеКарты</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>

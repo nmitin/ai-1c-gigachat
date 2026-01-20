@@ -1,0 +1,1600 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="СписокОткрытьФормуТиповМД" id="71">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОткрытьФормуТиповМД</CommandName>
+				<ExtendedTooltip name="СписокОткрытьФормуТиповМДРасширеннаяПодсказка" id="72"/>
+			</Button>
+			<Button name="СписокОтменитьФильтрацию" id="73">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОтменитьФильтрацию</CommandName>
+				<ExtendedTooltip name="СписокОтменитьФильтрациюРасширеннаяПодсказка" id="74"/>
+			</Button>
+			<Popup name="МедицинскийДокумент" id="15">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Медицинский документ</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Медицинский документ</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="МедицинскийДокументExtendedTooltip" id="19"/>
+				<ChildItems>
+					<Button name="СписокРедактироватьМД" id="9">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.РедактироватьМД</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.Change</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="СписокРедактироватьМДExtendedTooltip" id="20"/>
+					</Button>
+					<Button name="СписокПоказатьМД" id="8">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПоказатьМД</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.ShowData</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="СписокПоказатьМДExtendedTooltip" id="21"/>
+					</Button>
+					<Button name="СписокТекстМД" id="12">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ИсходникМД</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.Constant</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="СписокТекстМДExtendedTooltip" id="22"/>
+					</Button>
+					<Button name="ФормаСброситьШМД" id="13">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СброситьШМД</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.Stop</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сбросить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаСброситьШМДExtendedTooltip" id="23"/>
+					</Button>
+					<Button name="ФормаАнализИИ" id="78">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.АнализИИ</CommandName>
+						<ExtendedTooltip name="ФормаАнализИИРасширеннаяПодсказка" id="79"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Popup name="Сохранить" id="16">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить на диск</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="СохранитьExtendedTooltip" id="24"/>
+				<ChildItems>
+					<Button name="ФормаСохранитьPDF" id="14">
+						<Type>CommandBarButton</Type>
+						<Representation>Text</Representation>
+						<CommandName>Form.Command.СохранитьPDF</CommandName>
+						<ExtendedTooltip name="ФормаСохранитьPDFExtendedTooltip" id="25"/>
+					</Button>
+					<Button name="ФормаСохранитьXML" id="17">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СохранитьXML</CommandName>
+						<ExtendedTooltip name="ФормаСохранитьXMLExtendedTooltip" id="26"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Button name="ФормаПечатьПакета" id="18">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПечатьПакета</CommandName>
+				<ExtendedTooltip name="ФормаПечатьПакетаExtendedTooltip" id="27"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="28"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="56">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="57"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="58"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="59">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="60"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="61"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="62">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="63"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="64"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ДатаМД" id="65">
+					<DataPath>Список.ДатаМД</DataPath>
+					<ContextMenu name="ДатаМДКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="ДатаМДРасширеннаяПодсказка" id="67"/>
+				</LabelField>
+				<LabelField name="МедицинскаяКарта" id="47">
+					<DataPath>Список.МедицинскаяКарта</DataPath>
+					<ContextMenu name="МедицинскаяКартаКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="МедицинскаяКартаРасширеннаяПодсказка" id="49"/>
+				</LabelField>
+				<LabelField name="ОбработкаДополнениями" id="44">
+					<DataPath>Список.ОбработкаДополнениями</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="ОбработкаДополнениямиКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ОбработкаДополнениямиРасширеннаяПодсказка" id="46"/>
+				</LabelField>
+				<LabelField name="Пациент" id="35">
+					<DataPath>Список.Пациент</DataPath>
+					<ContextMenu name="ПациентКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ПациентРасширеннаяПодсказка" id="37"/>
+				</LabelField>
+				<LabelField name="Ответственный" id="38">
+					<DataPath>Список.Ответственный</DataPath>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+				<LabelField name="Организация" id="41">
+					<DataPath>Список.Организация</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="43"/>
+				</LabelField>
+				<LabelField name="Дата" id="75">
+					<DataPath>Список.Дата</DataPath>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="76"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="77"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>~Список.Ref</Field>
+				<Field>~Список.ШаблонМедицинскогоДокумента</Field>
+				<Field>Список.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументМедицинскийДокумент.Ссылка КАК Ссылка,
+	ДокументМедицинскийДокумент.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументМедицинскийДокумент.Номер КАК Номер,
+	ДокументМедицинскийДокумент.Дата КАК Дата,
+	ДокументМедицинскийДокумент.Проведен КАК Проведен,
+	ДокументМедицинскийДокумент.ОбработкаДополнениями КАК ОбработкаДополнениями,
+	ДокументМедицинскийДокумент.Пациент КАК Пациент,
+	ДокументМедицинскийДокумент.Организация КАК Организация,
+	ДокументМедицинскийДокумент.Ответственный КАК Ответственный,
+	ДокументМедицинскийДокумент.МедицинскаяКарта КАК МедицинскаяКарта,
+	ДокументМедицинскийДокумент.ДатаМД КАК ДатаМД,
+	ДокументМедицинскийДокумент.Заголовок КАК Заголовок,
+	ДокументМедицинскийДокумент.УсловияОказанияПомощи КАК УсловияОказанияПомощи,
+	ДокументМедицинскийДокумент.КартаЛояльности КАК КартаЛояльности,
+	ДокументМедицинскийДокумент.СкидкиРассчитаны КАК СкидкиРассчитаны,
+	ДокументМедицинскийДокумент.ВыполненныеПриемы.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		УникальныйИдентификаторПриема КАК УникальныйИдентификаторПриема,
+		Номенклатура КАК Номенклатура,
+		ДатаВыполнения КАК ДатаВыполнения
+	) КАК ВыполненныеПриемы,
+	ДокументМедицинскийДокумент.ВыполненныеУслуги.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		ДатаВыполнения КАК ДатаВыполнения,
+		ИсходныйСтатус КАК ИсходныйСтатус,
+		КлючСтрокиСоставаУслуги КАК КлючСтрокиСоставаУслуги,
+		Номенклатура КАК Номенклатура,
+		НоменклатураСоставаУслуги КАК НоменклатураСоставаУслуги,
+		Спецификация КАК Спецификация,
+		УникальныйИдентификаторУслуги КАК УникальныйИдентификаторУслуги,
+		Количество КАК Количество,
+		Цена КАК Цена,
+		Сумма КАК Сумма,
+		Соглашение КАК Соглашение,
+		КлючСвязи КАК КлючСвязи,
+		СтавкаНДС КАК СтавкаНДС,
+		СуммаНДС КАК СуммаНДС,
+		ПроцентАвтоматическойСкидки КАК ПроцентАвтоматическойСкидки,
+		ПроцентРучнойСкидки КАК ПроцентРучнойСкидки,
+		СуммаАвтоматическойСкидки КАК СуммаАвтоматическойСкидки,
+		СуммаРучнойСкидки КАК СуммаРучнойСкидки,
+		ИсточникФинансирования КАК ИсточникФинансирования,
+		Валюта КАК Валюта,
+		Контрагент КАК Контрагент,
+		ПричинаОтменыУслуги КАК ПричинаОтменыУслуги,
+		Договор КАК Договор,
+		БезЗаказа КАК БезЗаказа,
+		СуммаБонусныхБалловКСписанию КАК СуммаБонусныхБалловКСписанию,
+		СуммаБонусныхБалловКСписаниюВВалюте КАК СуммаБонусныхБалловКСписаниюВВалюте,
+		СуммаНачисленныхБонусныхБалловВВалюте КАК СуммаНачисленныхБонусныхБалловВВалюте
+	) КАК ВыполненныеУслуги,
+	ДокументМедицинскийДокумент.ВыполненныеМЭУслуги.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Номенклатура КАК Номенклатура,
+		УникальныйИдентификаторУслуги КАК УникальныйИдентификаторУслуги,
+		Количество КАК Количество,
+		Цена КАК Цена,
+		Сумма КАК Сумма,
+		Соглашение КАК Соглашение,
+		СтавкаНДС КАК СтавкаНДС,
+		СуммаНДС КАК СуммаНДС,
+		Договор КАК Договор,
+		Контрагент КАК Контрагент,
+		Валюта КАК Валюта,
+		ИсточникФинансирования КАК ИсточникФинансирования,
+		Спецификация КАК Спецификация,
+		ПроцентАвтоматическойСкидки КАК ПроцентАвтоматическойСкидки,
+		ПроцентРучнойСкидки КАК ПроцентРучнойСкидки,
+		СуммаАвтоматическойСкидки КАК СуммаАвтоматическойСкидки,
+		СуммаРучнойСкидки КАК СуммаРучнойСкидки,
+		СуммаБонусныхБалловКСписанию КАК СуммаБонусныхБалловКСписанию,
+		СуммаБонусныхБалловКСписаниюВВалюте КАК СуммаБонусныхБалловКСписаниюВВалюте,
+		СуммаНачисленныхБонусныхБалловВВалюте КАК СуммаНачисленныхБонусныхБалловВВалюте,
+		ПричинаОтменыУслуги КАК ПричинаОтменыУслуги,
+		КлючСвязи КАК КлючСвязи
+	) КАК ВыполненныеМЭУслуги,
+	ДокументМедицинскийДокумент.ДиагнозыПоМКБ10.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		ТипДиагноза КАК ТипДиагноза,
+		МКБ10 КАК МКБ10,
+		ХарактерЗаболевания КАК ХарактерЗаболевания,
+		СубъектПоказателяЗдоровья КАК СубъектПоказателяЗдоровья
+	) КАК ДиагнозыПоМКБ10,
+	ДокументМедицинскийДокумент.ЗаявкаНаДополнительныеТовары.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		КомпонентКрови КАК КомпонентКрови,
+		Количество КАК Количество,
+		УИДЗаявки КАК УИДЗаявки
+	) КАК ЗаявкаНаДополнительныеТовары,
+	ДокументМедицинскийДокумент.Исполнители.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Должность КАК Должность,
+		Исполнитель КАК Исполнитель,
+		ОтветственныйЗаНазначение КАК ОтветственныйЗаНазначение,
+		Роль КАК Роль,
+		УникальныйИдентификаторУслуги КАК УникальныйИдентификаторУслуги,
+		КлючСтрокиСоставаУслуги КАК КлючСтрокиСоставаУслуги
+	) КАК Исполнители,
+	ДокументМедицинскийДокумент.ИспользуемоеОборудование.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		УникальныйИдентификаторУслуги КАК УникальныйИдентификаторУслуги,
+		КлючСтрокиСоставаУслуги КАК КлючСтрокиСоставаУслуги,
+		Оборудование КАК Оборудование
+	) КАК ИспользуемоеОборудование,
+	ДокументМедицинскийДокумент.ЛекарственныеНазначения.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		ГрафикНазначения КАК ГрафикНазначения,
+		ДатаНачалаНазначения КАК ДатаНачалаНазначения,
+		ДатаОкончанияНазначения КАК ДатаОкончанияНазначения,
+		ДействующиеВеществаМНН КАК ДействующиеВеществаМНН,
+		ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+		Инструкция КАК Инструкция,
+		Номенклатура КАК Номенклатура,
+		РазоваяДозаНазначено КАК РазоваяДозаНазначено,
+		СпособПрименения КАК СпособПрименения,
+		СуточнаяДозаНазначения КАК СуточнаяДозаНазначения,
+		ТорговоеНаименование КАК ТорговоеНаименование,
+		УникальныйИдентификаторНазначения КАК УникальныйИдентификаторНазначения,
+		ФормаВыпуска КАК ФормаВыпуска,
+		ТребуетСогласования КАК ТребуетСогласования,
+		СогласованиеПостфактум КАК СогласованиеПостфактум
+	) КАК ЛекарственныеНазначения,
+	ДокументМедицинскийДокумент.МедицинскиеПрограммы.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		УИДУслуги КАК УИДУслуги,
+		УИДМедпрограммы КАК УИДМедпрограммы,
+		ВыполненнаяУслуга КАК ВыполненнаяУслуга
+	) КАК МедицинскиеПрограммы,
+	ДокументМедицинскийДокумент.МестаВыполнения.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		МестоВыполнения КАК МестоВыполнения
+	) КАК МестаВыполнения,
+	ДокументМедицинскийДокумент.НазначенныеУслуги.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Номенклатура КАК Номенклатура,
+		УникальныйИдентификаторУслуги КАК УникальныйИдентификаторУслуги,
+		ЦИТО КАК ЦИТО,
+		ГрафикНазначения КАК ГрафикНазначения,
+		ЗапланированноеВремя КАК ЗапланированноеВремя,
+		МедицинскоеРабочееМесто КАК МедицинскоеРабочееМесто,
+		Соглашение КАК Соглашение,
+		ИсточникФинансирования КАК ИсточникФинансирования,
+		Договор КАК Договор,
+		ИдентификаторБиоматериала КАК ИдентификаторБиоматериала,
+		Количество КАК Количество,
+		ТребуетСогласования КАК ТребуетСогласования,
+		СогласованиеПостфактум КАК СогласованиеПостфактум,
+		ОтказОтВмешательства КАК ОтказОтВмешательства
+	) КАК НазначенныеУслуги,
+	ДокументМедицинскийДокумент.ПоказателиЗдоровья.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+		Значение КАК Значение,
+		ЗначениеМаксимум КАК ЗначениеМаксимум,
+		ЗначениеМинимум КАК ЗначениеМинимум,
+		Показатель КАК Показатель,
+		Флаг КАК Флаг
+	) КАК ПоказателиЗдоровья,
+	ДокументМедицинскийДокумент.СкидкиНаценки.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		КлючСвязи КАК КлючСвязи,
+		СкидкаНаценка КАК СкидкаНаценка,
+		Сумма КАК Сумма,
+		НапомнитьПозже КАК НапомнитьПозже
+	) КАК СкидкиНаценки,
+	ДокументМедицинскийДокумент.СтандартыМедицинскойПомощи.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		УИДУслуги КАК УИДУслуги,
+		УИДСтандарта КАК УИДСтандарта
+	) КАК СтандартыМедицинскойПомощи,
+	ДокументМедицинскийДокумент.СубъектыПоказателейЗдоровьяПоУслугам.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		СубъектПоказателяЗдоровья КАК СубъектПоказателяЗдоровья,
+		УникальныйИдентификаторУслуги КАК УникальныйИдентификаторУслуги,
+		КлючСтрокиСоставаУслуги КАК КлючСтрокиСоставаУслуги,
+		Количество КАК Количество
+	) КАК СубъектыПоказателейЗдоровьяПоУслугам,
+	ДокументМедицинскийДокумент.БонусныеБаллы.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		БонуснаяПрограммаЛояльности КАК БонуснаяПрограммаЛояльности,
+		ДатаНачисления КАК ДатаНачисления,
+		ДатаСписания КАК ДатаСписания,
+		СуммаБонусныхБаллов КАК СуммаБонусныхБаллов
+	) КАК БонусныеБаллы,
+	ДокументМедицинскийДокумент.ЭтапыНазначенныхУслуг.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		УникальныйИдентификаторУслуги КАК УникальныйИдентификаторУслуги,
+		КлючСтрокиСоставаУслуги КАК КлючСтрокиСоставаУслуги,
+		РабочееМесто КАК РабочееМесто,
+		ЗапланированноеВремя КАК ЗапланированноеВремя,
+		КлючСтрокиЭтапа КАК КлючСтрокиЭтапа,
+		Номенклатура КАК Номенклатура
+	) КАК ЭтапыНазначенныхУслуг,
+	ДокументМедицинскийДокумент.НазначенныеПриемы.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		УникальныйИдентификаторПриема КАК УникальныйИдентификаторПриема,
+		Номенклатура КАК Номенклатура,
+		МедицинскоеРабочееМесто КАК МедицинскоеРабочееМесто,
+		ЗапланированноеВремя КАК ЗапланированноеВремя,
+		ЧислоТалонов КАК ЧислоТалонов
+	) КАК НазначенныеПриемы,
+	ДокументМедицинскийДокумент.CDAДокументы.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		ТелоМедДокумента КАК ТелоМедДокумента,
+		ШаблонМедицинскогоДокумента КАК ШаблонМедицинскогоДокумента,
+		Актуально КАК Актуально,
+		ПодписанЭП КАК ПодписанЭП
+	) КАК CDAДокументы,
+	ДокументМедицинскийДокумент.МоментВремени КАК МоментВремени
+ИЗ
+	Документ.МедицинскийДокумент КАК ДокументМедицинскийДокумент
+ГДЕ
+	(&amp;НеФильтроватьПоТипамМД
+			ИЛИ ДокументМедицинскийДокумент.Ссылка В
+				(ВЫБРАТЬ
+					СтатусыМедицинскихДокументов.МедицинскийДокумент
+				ИЗ
+					Справочник.ТипыМД КАК ТипыМД
+						ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.СтатусыМедицинскихДокументов КАК СтатусыМедицинскихДокументов
+						ПО
+							СтатусыМедицинскихДокументов.codeSystem = ТипыМД.codeSystem
+								И СтатусыМедицинскихДокументов.АтрибутCode = ТипыМД.АтрибутCode
+				ГДЕ
+					ТипыМД.Ссылка В (&amp;СписокТиповМД)))</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Сумма</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Сумма</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслугиИспользованныеПрепараты</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслугиИспользованныеПрепараты</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОбработкаФормирования</dcssch:dataPath>
+					<dcssch:field>ОбработкаФормирования</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.СтавкаНДС</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.СтавкаНДС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.БезЗаказа</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.БезЗаказа</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтапыНазначенныхУслуг.РабочееМесто</dcssch:dataPath>
+					<dcssch:field>ЭтапыНазначенныхУслуг.РабочееМесто</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПоказателиЗдоровья.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>ПоказателиЗдоровья.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КартаЛояльности</dcssch:dataPath>
+					<dcssch:field>КартаЛояльности</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДанныеОнкологии</dcssch:dataPath>
+					<dcssch:field>ДанныеОнкологии</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>БонусныеБаллы.СуммаБонусныхБаллов</dcssch:dataPath>
+					<dcssch:field>БонусныеБаллы.СуммаБонусныхБаллов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Валюта</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Валюта</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДиагнозыПоМКБ10.Ссылка</dcssch:dataPath>
+					<dcssch:field>ДиагнозыПоМКБ10.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИзВнешнегоИсточника</dcssch:dataPath>
+					<dcssch:field>ИзВнешнегоИсточника</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтапыНазначенныхУслуг.Номенклатура</dcssch:dataPath>
+					<dcssch:field>ЭтапыНазначенныхУслуг.Номенклатура</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Спецификация</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Спецификация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Дата</dcssch:dataPath>
+					<dcssch:field>Дата</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеИнструментальныеИсследования</dcssch:dataPath>
+					<dcssch:field>ВыполненныеИнструментальныеИсследования</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.СуммаБонусныхБалловКСписанию</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.СуммаБонусныхБалловКСписанию</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.Соглашение</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.Соглашение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПолученОтМО</dcssch:dataPath>
+					<dcssch:field>ПолученОтМО</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.ДатаВыполнения</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.ДатаВыполнения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Пациент</dcssch:dataPath>
+					<dcssch:field>Пациент</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыбранныйБиоматериал</dcssch:dataPath>
+					<dcssch:field>ВыбранныйБиоматериал</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИзмененияЛекарственнойПрописи</dcssch:dataPath>
+					<dcssch:field>ИзмененияЛекарственнойПрописи</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СкидкиРассчитаны</dcssch:dataPath>
+					<dcssch:field>СкидкиРассчитаны</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслугиРасходныеМатериалы</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслугиРасходныеМатериалы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МедицинскаяКарта</dcssch:dataPath>
+					<dcssch:field>МедицинскаяКарта</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИнформацияКБиоматериалу</dcssch:dataPath>
+					<dcssch:field>ИнформацияКБиоматериалу</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.НоменклатураСоставаУслуги</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.НоменклатураСоставаУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Соглашение</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Соглашение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначенияВремяВыполнения</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначенияВремяВыполнения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДиагнозыПоМКБ10.ТипДиагноза</dcssch:dataPath>
+					<dcssch:field>ДиагнозыПоМКБ10.ТипДиагноза</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеПриемы.Номенклатура</dcssch:dataPath>
+					<dcssch:field>ВыполненныеПриемы.Номенклатура</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначенияИспользованныеПрепараты</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначенияИспользованныеПрепараты</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>CDAДокументы.Ссылка</dcssch:dataPath>
+					<dcssch:field>CDAДокументы.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.ПроцентРучнойСкидки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.ПроцентРучнойСкидки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтандартыМедицинскойПомощи.УИДСтандарта</dcssch:dataPath>
+					<dcssch:field>СтандартыМедицинскойПомощи.УИДСтандарта</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.СуммаНДС</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.СуммаНДС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Номер</dcssch:dataPath>
+					<dcssch:field>Номер</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Проведен</dcssch:dataPath>
+					<dcssch:field>Проведен</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаМД</dcssch:dataPath>
+					<dcssch:field>ДатаМД</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.ПроцентАвтоматическойСкидки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.ПроцентАвтоматическойСкидки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОбработкаДополнениями</dcssch:dataPath>
+					<dcssch:field>ОбработкаДополнениями</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.ИсходныйСтатус</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.ИсходныйСтатус</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ответственный</dcssch:dataPath>
+					<dcssch:field>Ответственный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Заголовок</dcssch:dataPath>
+					<dcssch:field>Заголовок</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.СуммаНачисленныхБонусныхБалловВВалюте</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.СуммаНачисленныхБонусныхБалловВВалюте</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УсловияОказанияПомощи</dcssch:dataPath>
+					<dcssch:field>УсловияОказанияПомощи</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеПриемы.Ссылка</dcssch:dataPath>
+					<dcssch:field>ВыполненныеПриемы.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеПриемы.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеПриемы.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Валюта</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Валюта</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.ИсточникФинансирования</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.ИсточникФинансирования</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Количество</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Количество</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеПриемы.УникальныйИдентификаторПриема</dcssch:dataPath>
+					<dcssch:field>ВыполненныеПриемы.УникальныйИдентификаторПриема</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеПриемы.ДатаВыполнения</dcssch:dataPath>
+					<dcssch:field>ВыполненныеПриемы.ДатаВыполнения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ВыполненныеПриемы</dcssch:dataPath>
+					<dcssch:field>ВыполненныеПриемы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДиагнозыПоМКБ10.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>ДиагнозыПоМКБ10.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Ссылка</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.КлючСтрокиСоставаУслуги</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.КлючСтрокиСоставаУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Номенклатура</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Номенклатура</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.УникальныйИдентификаторУслуги</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.УникальныйИдентификаторУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>СкидкиНаценки</dcssch:dataPath>
+					<dcssch:field>СкидкиНаценки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Цена</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Цена</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.СуммаРучнойСкидки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.СуммаРучнойСкидки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.КлючСвязи</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.КлючСвязи</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.СуммаАвтоматическойСкидки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.СуммаАвтоматическойСкидки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Договор</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Договор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.Контрагент</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.Контрагент</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.ПричинаОтменыУслуги</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.ПричинаОтменыУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеУслуги.СуммаБонусныхБалловКСписаниюВВалюте</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги.СуммаБонусныхБалловКСписаниюВВалюте</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ВыполненныеУслуги</dcssch:dataPath>
+					<dcssch:field>ВыполненныеУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Ссылка</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Номенклатура</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Номенклатура</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.УникальныйИдентификаторУслуги</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.УникальныйИдентификаторУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Количество</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Количество</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Цена</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Цена</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Сумма</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Сумма</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИспользуемоеОборудование.КлючСтрокиСоставаУслуги</dcssch:dataPath>
+					<dcssch:field>ИспользуемоеОборудование.КлючСтрокиСоставаУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Соглашение</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Соглашение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.СтавкаНДС</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.СтавкаНДС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>CDAДокументы.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>CDAДокументы.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.СуммаНДС</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.СуммаНДС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Договор</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Договор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Контрагент</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Контрагент</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.ИсточникФинансирования</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.ИсточникФинансирования</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.УникальныйИдентификаторУслуги</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.УникальныйИдентификаторУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.Спецификация</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.Спецификация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.ПроцентАвтоматическойСкидки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.ПроцентАвтоматическойСкидки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.ПроцентРучнойСкидки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.ПроцентРучнойСкидки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МедицинскиеПрограммы.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>МедицинскиеПрограммы.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.СуммаАвтоматическойСкидки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.СуммаАвтоматическойСкидки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.СуммаРучнойСкидки</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.СуммаРучнойСкидки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.СуммаБонусныхБалловКСписанию</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.СуммаБонусныхБалловКСписанию</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.СуммаБонусныхБалловКСписаниюВВалюте</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.СуммаБонусныхБалловКСписаниюВВалюте</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.СуммаНачисленныхБонусныхБалловВВалюте</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.СуммаНачисленныхБонусныхБалловВВалюте</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПоказателиЗдоровья.ЗначениеМаксимум</dcssch:dataPath>
+					<dcssch:field>ПоказателиЗдоровья.ЗначениеМаксимум</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.ПричинаОтменыУслуги</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.ПричинаОтменыУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.СогласованиеПостфактум</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.СогласованиеПостфактум</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВыполненныеМЭУслуги.КлючСвязи</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги.КлючСвязи</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ВыполненныеМЭУслуги</dcssch:dataPath>
+					<dcssch:field>ВыполненныеМЭУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДиагнозыПоМКБ10.МКБ10</dcssch:dataPath>
+					<dcssch:field>ДиагнозыПоМКБ10.МКБ10</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеПриемы.ЗапланированноеВремя</dcssch:dataPath>
+					<dcssch:field>НазначенныеПриемы.ЗапланированноеВремя</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДиагнозыПоМКБ10.ХарактерЗаболевания</dcssch:dataPath>
+					<dcssch:field>ДиагнозыПоМКБ10.ХарактерЗаболевания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДиагнозыПоМКБ10.СубъектПоказателяЗдоровья</dcssch:dataPath>
+					<dcssch:field>ДиагнозыПоМКБ10.СубъектПоказателяЗдоровья</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ДиагнозыПоМКБ10</dcssch:dataPath>
+					<dcssch:field>ДиагнозыПоМКБ10</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЗаявкаНаДополнительныеТовары.Ссылка</dcssch:dataPath>
+					<dcssch:field>ЗаявкаНаДополнительныеТовары.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЗаявкаНаДополнительныеТовары.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>ЗаявкаНаДополнительныеТовары.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЗаявкаНаДополнительныеТовары.КомпонентКрови</dcssch:dataPath>
+					<dcssch:field>ЗаявкаНаДополнительныеТовары.КомпонентКрови</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЗаявкаНаДополнительныеТовары.Количество</dcssch:dataPath>
+					<dcssch:field>ЗаявкаНаДополнительныеТовары.Количество</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЗаявкаНаДополнительныеТовары.УИДЗаявки</dcssch:dataPath>
+					<dcssch:field>ЗаявкаНаДополнительныеТовары.УИДЗаявки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ЗаявкаНаДополнительныеТовары</dcssch:dataPath>
+					<dcssch:field>ЗаявкаНаДополнительныеТовары</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Исполнители.Ссылка</dcssch:dataPath>
+					<dcssch:field>Исполнители.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Исполнители.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>Исполнители.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Исполнители.Должность</dcssch:dataPath>
+					<dcssch:field>Исполнители.Должность</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтапыНазначенныхУслуг.КлючСтрокиЭтапа</dcssch:dataPath>
+					<dcssch:field>ЭтапыНазначенныхУслуг.КлючСтрокиЭтапа</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Исполнители.Исполнитель</dcssch:dataPath>
+					<dcssch:field>Исполнители.Исполнитель</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Исполнители.ОтветственныйЗаНазначение</dcssch:dataPath>
+					<dcssch:field>Исполнители.ОтветственныйЗаНазначение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>СтандартыМедицинскойПомощи</dcssch:dataPath>
+					<dcssch:field>СтандартыМедицинскойПомощи</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Исполнители.Роль</dcssch:dataPath>
+					<dcssch:field>Исполнители.Роль</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Исполнители.УникальныйИдентификаторУслуги</dcssch:dataPath>
+					<dcssch:field>Исполнители.УникальныйИдентификаторУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Исполнители.КлючСтрокиСоставаУслуги</dcssch:dataPath>
+					<dcssch:field>Исполнители.КлючСтрокиСоставаУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>Исполнители</dcssch:dataPath>
+					<dcssch:field>Исполнители</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИспользуемоеОборудование.Ссылка</dcssch:dataPath>
+					<dcssch:field>ИспользуемоеОборудование.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МедицинскиеПрограммы.ВыполненнаяУслуга</dcssch:dataPath>
+					<dcssch:field>МедицинскиеПрограммы.ВыполненнаяУслуга</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИспользуемоеОборудование.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>ИспользуемоеОборудование.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИспользуемоеОборудование.УникальныйИдентификаторУслуги</dcssch:dataPath>
+					<dcssch:field>ИспользуемоеОборудование.УникальныйИдентификаторУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИспользуемоеОборудование.Оборудование</dcssch:dataPath>
+					<dcssch:field>ИспользуемоеОборудование.Оборудование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ИспользуемоеОборудование</dcssch:dataPath>
+					<dcssch:field>ИспользуемоеОборудование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.Ссылка</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.ГрафикНазначения</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.ГрафикНазначения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.ДатаНачалаНазначения</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.ДатаНачалаНазначения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.МедицинскоеРабочееМесто</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.МедицинскоеРабочееМесто</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.ДатаОкончанияНазначения</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.ДатаОкончанияНазначения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.ДействующиеВеществаМНН</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.ДействующиеВеществаМНН</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.ЕдиницаИзмерения</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.ЕдиницаИзмерения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.Инструкция</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.Инструкция</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.Номенклатура</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.Номенклатура</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.РазоваяДозаНазначено</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.РазоваяДозаНазначено</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.СпособПрименения</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.СпособПрименения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.СуточнаяДозаНазначения</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.СуточнаяДозаНазначения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.ТорговоеНаименование</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.ТорговоеНаименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.УникальныйИдентификаторНазначения</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.УникальныйИдентификаторНазначения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ЭтапыНазначенныхУслуг</dcssch:dataPath>
+					<dcssch:field>ЭтапыНазначенныхУслуг</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.ФормаВыпуска</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.ФормаВыпуска</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЛекарственныеНазначения.ТребуетСогласования</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения.ТребуетСогласования</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ЛекарственныеНазначения</dcssch:dataPath>
+					<dcssch:field>ЛекарственныеНазначения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МедицинскиеПрограммы.Ссылка</dcssch:dataPath>
+					<dcssch:field>МедицинскиеПрограммы.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МедицинскиеПрограммы.УИДУслуги</dcssch:dataPath>
+					<dcssch:field>МедицинскиеПрограммы.УИДУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МедицинскиеПрограммы.УИДМедпрограммы</dcssch:dataPath>
+					<dcssch:field>МедицинскиеПрограммы.УИДМедпрограммы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>МедицинскиеПрограммы</dcssch:dataPath>
+					<dcssch:field>МедицинскиеПрограммы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МестаВыполнения.Ссылка</dcssch:dataPath>
+					<dcssch:field>МестаВыполнения.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МестаВыполнения.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>МестаВыполнения.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.ТребуетСогласования</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.ТребуетСогласования</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МестаВыполнения.МестоВыполнения</dcssch:dataPath>
+					<dcssch:field>МестаВыполнения.МестоВыполнения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПоказателиЗдоровья.ЕдиницаИзмерения</dcssch:dataPath>
+					<dcssch:field>ПоказателиЗдоровья.ЕдиницаИзмерения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>МестаВыполнения</dcssch:dataPath>
+					<dcssch:field>МестаВыполнения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>CDAДокументы.ШаблонМедицинскогоДокумента</dcssch:dataPath>
+					<dcssch:field>CDAДокументы.ШаблонМедицинскогоДокумента</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.Ссылка</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеПриемы.ЧислоТалонов</dcssch:dataPath>
+					<dcssch:field>НазначенныеПриемы.ЧислоТалонов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.Номенклатура</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.Номенклатура</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.ЦИТО</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.ЦИТО</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.ГрафикНазначения</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.ГрафикНазначения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.ЗапланированноеВремя</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.ЗапланированноеВремя</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПоказателиЗдоровья.Значение</dcssch:dataPath>
+					<dcssch:field>ПоказателиЗдоровья.Значение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.ИсточникФинансирования</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.ИсточникФинансирования</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.Договор</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.Договор</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.ИдентификаторБиоматериала</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.ИдентификаторБиоматериала</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.Количество</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.Количество</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.СогласованиеПостфактум</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.СогласованиеПостфактум</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеУслуги.ОтказОтВмешательства</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги.ОтказОтВмешательства</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>НазначенныеУслуги</dcssch:dataPath>
+					<dcssch:field>НазначенныеУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПоказателиЗдоровья.Ссылка</dcssch:dataPath>
+					<dcssch:field>ПоказателиЗдоровья.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПоказателиЗдоровья.ЗначениеМинимум</dcssch:dataPath>
+					<dcssch:field>ПоказателиЗдоровья.ЗначениеМинимум</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПоказателиЗдоровья.Показатель</dcssch:dataPath>
+					<dcssch:field>ПоказателиЗдоровья.Показатель</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПоказателиЗдоровья.Флаг</dcssch:dataPath>
+					<dcssch:field>ПоказателиЗдоровья.Флаг</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеПриемы.УникальныйИдентификаторПриема</dcssch:dataPath>
+					<dcssch:field>НазначенныеПриемы.УникальныйИдентификаторПриема</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ПоказателиЗдоровья</dcssch:dataPath>
+					<dcssch:field>ПоказателиЗдоровья</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СкидкиНаценки.Ссылка</dcssch:dataPath>
+					<dcssch:field>СкидкиНаценки.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СкидкиНаценки.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>СкидкиНаценки.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СкидкиНаценки.КлючСвязи</dcssch:dataPath>
+					<dcssch:field>СкидкиНаценки.КлючСвязи</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СкидкиНаценки.СкидкаНаценка</dcssch:dataPath>
+					<dcssch:field>СкидкиНаценки.СкидкаНаценка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СкидкиНаценки.Сумма</dcssch:dataPath>
+					<dcssch:field>СкидкиНаценки.Сумма</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СкидкиНаценки.НапомнитьПозже</dcssch:dataPath>
+					<dcssch:field>СкидкиНаценки.НапомнитьПозже</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтандартыМедицинскойПомощи.Ссылка</dcssch:dataPath>
+					<dcssch:field>СтандартыМедицинскойПомощи.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтандартыМедицинскойПомощи.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>СтандартыМедицинскойПомощи.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтандартыМедицинскойПомощи.УИДУслуги</dcssch:dataPath>
+					<dcssch:field>СтандартыМедицинскойПомощи.УИДУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СубъектыПоказателейЗдоровьяПоУслугам.Ссылка</dcssch:dataPath>
+					<dcssch:field>СубъектыПоказателейЗдоровьяПоУслугам.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СубъектыПоказателейЗдоровьяПоУслугам.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>СубъектыПоказателейЗдоровьяПоУслугам.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СубъектыПоказателейЗдоровьяПоУслугам.СубъектПоказателяЗдоровья</dcssch:dataPath>
+					<dcssch:field>СубъектыПоказателейЗдоровьяПоУслугам.СубъектПоказателяЗдоровья</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СубъектыПоказателейЗдоровьяПоУслугам.УникальныйИдентификаторУслуги</dcssch:dataPath>
+					<dcssch:field>СубъектыПоказателейЗдоровьяПоУслугам.УникальныйИдентификаторУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СубъектыПоказателейЗдоровьяПоУслугам.КлючСтрокиСоставаУслуги</dcssch:dataPath>
+					<dcssch:field>СубъектыПоказателейЗдоровьяПоУслугам.КлючСтрокиСоставаУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СубъектыПоказателейЗдоровьяПоУслугам.Количество</dcssch:dataPath>
+					<dcssch:field>СубъектыПоказателейЗдоровьяПоУслугам.Количество</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеПриемы.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>НазначенныеПриемы.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>СубъектыПоказателейЗдоровьяПоУслугам</dcssch:dataPath>
+					<dcssch:field>СубъектыПоказателейЗдоровьяПоУслугам</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>БонусныеБаллы.Ссылка</dcssch:dataPath>
+					<dcssch:field>БонусныеБаллы.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>БонусныеБаллы.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>БонусныеБаллы.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>БонусныеБаллы.БонуснаяПрограммаЛояльности</dcssch:dataPath>
+					<dcssch:field>БонусныеБаллы.БонуснаяПрограммаЛояльности</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>БонусныеБаллы.ДатаСписания</dcssch:dataPath>
+					<dcssch:field>БонусныеБаллы.ДатаСписания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>БонусныеБаллы.ДатаНачисления</dcssch:dataPath>
+					<dcssch:field>БонусныеБаллы.ДатаНачисления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>БонусныеБаллы</dcssch:dataPath>
+					<dcssch:field>БонусныеБаллы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтапыНазначенныхУслуг.Ссылка</dcssch:dataPath>
+					<dcssch:field>ЭтапыНазначенныхУслуг.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтапыНазначенныхУслуг.НомерСтроки</dcssch:dataPath>
+					<dcssch:field>ЭтапыНазначенныхУслуг.НомерСтроки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтапыНазначенныхУслуг.УникальныйИдентификаторУслуги</dcssch:dataPath>
+					<dcssch:field>ЭтапыНазначенныхУслуг.УникальныйИдентификаторУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтапыНазначенныхУслуг.КлючСтрокиСоставаУслуги</dcssch:dataPath>
+					<dcssch:field>ЭтапыНазначенныхУслуг.КлючСтрокиСоставаУслуги</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтапыНазначенныхУслуг.ЗапланированноеВремя</dcssch:dataPath>
+					<dcssch:field>ЭтапыНазначенныхУслуг.ЗапланированноеВремя</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>НазначенныеПриемы</dcssch:dataPath>
+					<dcssch:field>НазначенныеПриемы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеПриемы.Ссылка</dcssch:dataPath>
+					<dcssch:field>НазначенныеПриемы.Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеПриемы.Номенклатура</dcssch:dataPath>
+					<dcssch:field>НазначенныеПриемы.Номенклатура</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначенныеПриемы.МедицинскоеРабочееМесто</dcssch:dataPath>
+					<dcssch:field>НазначенныеПриемы.МедицинскоеРабочееМесто</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>CDAДокументы.ТелоМедДокумента</dcssch:dataPath>
+					<dcssch:field>CDAДокументы.ТелоМедДокумента</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>CDAДокументы.Актуально</dcssch:dataPath>
+					<dcssch:field>CDAДокументы.Актуально</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>CDAДокументы.ПодписанЭП</dcssch:dataPath>
+					<dcssch:field>CDAДокументы.ПодписанЭП</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>CDAДокументы</dcssch:dataPath>
+					<dcssch:field>CDAДокументы</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МоментВремени</dcssch:dataPath>
+					<dcssch:field>МоментВремени</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>НеФильтроватьПоТипамМД</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не фильтровать по типам МД</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:boolean</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:boolean">false</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>СписокТиповМД</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список типов МД</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.ТипыМД</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+					<dcssch:valueListAllowed>true</dcssch:valueListAllowed>
+				</Parameter>
+				<MainTable>Document.МедицинскийДокумент</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:dataParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>СписокТиповМД</dcscor:parameter>
+						</dcscor:item>
+					</dcsset:dataParameters>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТипыМД" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Типы МД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПоказатьМД" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать МД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьМД</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РедактироватьМД" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать МД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РедактироватьМД</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ИсходникМД" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исходник</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исходник МД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ТекстМД</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СброситьШМД" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сбросить ШМД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сбросить ШМД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СброситьШМД</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СохранитьPDF" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить PDF</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить PDF</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьPDF</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СохранитьXML" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить XML</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить XML</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьXML</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПечатьПакета" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать пакета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать пакета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПечатьПакета</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьФормуТиповМД" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Типы МД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть форму типов МД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Отборы</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьФормуТиповМД</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтменитьФильтрацию" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить фильтрацию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить фильтрацию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ClearFilter</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтменитьФильтрацию</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="АнализИИ" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Анализ ИИ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Анализ ИИ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ВопросАвтору</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>АнализИИ</Action>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,468 @@
+﻿<ClinicalDocument xmlns="urn:hl7-org:v3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:identity="urn:hl7-ru:identity"
+	xmlns:address="urn:hl7-ru:address"
+	xmlns:medService="urn:hl7-ru:medService"
+	xmlns:fias="urn:hl7-ru:fias">
+	<!--  R [1..] Требуемый элемент. Элемент обязан иметь непустое наполнение, nullFlavor не разрешён
+	       [1..] Обязательный элемент. Элемент обязан присутствовать, но может иметь пустое наполнение с указанием причины отсутствия информации через nullFlavor
+	       [0..] Не обязательный элемент. Элемент может отсутствовать  -->
+	<!--  R [1..1] Указание на область применения документа (РФ)  -->
+	<realmCode code="RU"/>
+	<!--  R [1..1] Указание на тип структуры документа (CDA R2)  -->
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_MT000040"/>
+	<!--  R [1..1] Уникальный идентификатор руководства по реализации СЭМД  -->
+	<templateId root="1.2.643.5.1.13.13.15.96.1"/>
+	<!--  R [1..1] Вид медицинского документа  -->
+	<code code="221" codeSystem="1.2.643.5.1.13.13.11.1520" codeSystemVersion="12.29" codeSystemName="Электронные медицинские документы" displayName="Лист назначений и их выполнение (CDA) Редакция 1">
+		<!--  R [1..1] Вид структурированного электронного медицинского документа  -->
+		<translation code="96" codeSystem="1.2.643.5.1.13.13.99.2.1079" codeSystemVersion="1.10" codeSystemName="Виды структурированных электронных медицинских документов" displayName="Лист назначений и их выполнение"/>
+	</code>
+	<!--  R [1..1] Заголовок документа  -->
+	<title>Лист назначений и их выполнение</title>
+	<!--  [1..1] Дата и время создания документа  -->
+	<effectiveTime nullFlavor="NA"/>
+	<!--  R [1..1] Уровень конфиденциальности документа  -->
+	<confidentialityCode code="N" codeSystem="1.2.643.5.1.13.13.99.2.285" codeSystemVersion="1.2" codeSystemName="Уровень конфиденциальности медицинского документа" displayName="Обычный"/>
+	<!--  R [1..1] Указание на язык документа  -->
+	<languageCode code="ru-RU"/>
+	<!--  R [1..1] Номер версии документа  -->
+	<versionNumber value="1"/>
+	<!-- R [1..1] СВЕДЕНИЯ ОБ ИСТОЧНИКЕ ОПЛАТЫ -->
+	<participant typeCode="IND">
+		<!-- R [1..1] Источник оплаты -->
+		<associatedEntity classCode="GUAR">
+			<!-- R [1..1] Кодирование источника оплаты -->
+			[ИсточникОплатыИсточникФинансированияТег]
+			<!-- [1..1] Документ-основание -->
+			{{
+			<identity:DocInfo>
+				<!-- R [1..1] Тип документа-основания -->
+				[ИсточникОплатыТипДокументаТег]
+				<!-- [1..1] Тип полиса ОМС -->
+				
+				{{[ИсточникОплатыЭтоОМС]
+				[ИсточникОплатыПолисВидТег]
+				}иначе{
+				<identity:InsurancePolicyType nullFlavor="NI"/>
+				}}
+				<!-- [1..1] Серия документа -->
+				{{[ИсточникОплатыЭтоОМС]
+				<identity:Series xsi:type="ST">[ИсточникОплатыПолисСерия]</identity:Series>
+				}иначе{
+				<identity:Series nullFlavor="NI"/>
+				}}
+				<!-- [1..1] Номер документа -->
+				{{[ИсточникОплатыЭтоОМС]
+				<identity:Number xsi:type="ST">[ИсточникОплатыПолисНомер]</identity:Number>
+				}иначе{
+				<identity:Number nullFlavor="NI"/>
+				}}
+				<!-- [1..1] ИНН -->
+				<identity:INN nullFlavor="NI"/>
+				<!-- [1..1] Срок действия документа -->
+				{{[ИсточникОплатыЭтоОМС]
+				<identity:effectiveTime>
+					<!-- R [1..1] Дата начала действия документа -->
+					<identity:low xsi:type="TS" value="[ИсточникОплатыПолисДатаНачала]"/>
+					<!-- [1..1] Дата конца действия документа -->
+					{{
+					<identity:high xsi:type="TS" value="[ИсточникОплатыПолисДатаОкончания]"/>
+					}иначе{
+					<identity:high nullFlavor="NI"/>
+					}}
+				</identity:effectiveTime>
+				}иначе{
+				<identity:effectiveTime nullFlavor="NI"/>
+				}}
+			</identity:DocInfo>
+			}иначе{
+			<identity:DocInfo nullFlavor="NI"/>
+			}}
+			
+		</associatedEntity>
+	</participant>
+	<!--  R [1..1] Тело документа  -->
+	<component>
+		<!--  R [1..1] Структурированное тело документа  -->
+		<structuredBody>
+			<!--  R [1..1] СЕКЦИЯ: "Сведения о документе"  -->
+			<component>
+				<!--  R [1..1] -->
+				<section>
+					<!--  R [1..1] Код секции  -->
+					<code code="DOCINFO" codeSystem="1.2.643.5.1.13.13.99.2.197" codeSystemVersion="4.10" codeSystemName="Секции электронных медицинских документов" displayName="Сведения о документе"/>
+					<!--  R [1..1] Название секции  -->
+					<title>Сведения о документе</title>
+					<!--  R [1..1] Номер палаты  -->
+					<entry>
+						<!--  R [1..1] -->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--  R [1..1] Код поля  -->
+							<code code="8107" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.15" codeSystemName="Кодируемые поля CDA документов" displayName="Номер палаты"/>
+							<!--  R [1..1] Значение поля  -->
+							<value xsi:type="ST">[НомерПалаты]</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--  R [1..1] СЕКЦИЯ: "Диагнозы"  -->
+			<component>
+				<!--  R [1..1] -->
+				<section>
+					<!--  R [1..1] Код секции  -->
+					<code code="DGN" codeSystem="1.2.643.5.1.13.13.99.2.197" codeSystemVersion="4.10" codeSystemName="Секции электронных медицинских документов" displayName="Диагнозы"/>
+					<!--  R [1..1] Название секции  -->
+					<title>Диагноз</title>
+					<!--  R [1..*] Диагноз  -->
+					[Диагнозы]
+					<entry>
+						<!--  R [1..1] -->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--  R [1..1] Вид нозологической единицы диагноза  -->
+							[ТипДиагнозаТег]
+							<!--  [0..1] Врачебное описание диагноза  -->
+							<!--  [0..1] Дата постановки диагноза  -->
+							<!--  R [1..1] Шифр по МКБ  -->
+							[ДиагнозТег]
+						</observation>
+					</entry>
+					[/Диагнозы]
+				</section>
+			</component>
+			{{[АллергическиеРеакцииЗаполнены]
+			<!--  [0..1] СЕКЦИЯ: "Аллергии и непереносимость"  -->
+			<component>
+				<!--  R [1..1] -->
+				<section>
+					<!--  R [1..1] Код секции  -->
+					<code code="ALL" codeSystem="1.2.643.5.1.13.13.99.2.197" codeSystemVersion="4.10" codeSystemName="Секции электронных медицинских документов" displayName="Аллергии и непереносимость"/>
+					<!--  R [1..1] Название секции  -->
+					<title>Аллергии и непереносимость</title>
+					<!--  R [1..*] Аллергические реакции в анамнезе  -->
+					[АллергическиеРеакции]
+					<entry>
+						<!--  R [1..1] -->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--  R [1..1] Код поля  -->
+							<code code="11036" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.15" codeSystemName="Кодируемые поля CDA документов" displayName="Аллергические реакции"/>
+							<!--  [0..1] Комментарий  -->
+							<!--  [1..1] Дата выявления патологической реакции  -->
+							<effectiveTime {{value="[ДатаВыявленияРеакции]"}иначе{nullFlavor="NI"}}/>
+							<!--  R [1..1] Тип реакции  -->
+							[ТипРеакцииТег]
+							<!--  R [1..1] Описание агента патологической реакции  -->
+							<participant typeCode="IND">
+								<!--  R [1..1] -->
+								<participantRole classCode="[participantRoleClassCode]">
+									<!--  R [1..1] -->
+									<playingEntity classCode="[playingEntityClassCode]">
+										<!--  [1..1] МНН  -->
+										{{[МННТег]}иначе{<code nullFlavor="OTH"/>}}
+										{{<!--  [0..1] Описание агента (текстом)  -->
+										<desc>[ОписаниеАгента]</desc>}}
+									</playingEntity>
+								</participantRole>
+							</participant>
+							{{[КлиническиеПроявления]
+							<!--  R [1..*] Клинические проявления патологической реакции  -->
+							<entryRelationship typeCode="MFST">
+								<!--  R [1..1] -->
+								<observation classCode="OBS" moodCode="EVN">
+									<!--  R [1..1] Код поля  -->
+									<code code="12328" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.15" codeSystemName="Кодируемые поля CDA документов" displayName="Краткая характеристика клинической картины"/>
+									<!--  [0..1] Описание клинических проявлений патологической реакции (текстом)  -->
+									<!--  R [1..1] Клинические проявления патологической реакции  -->
+									[КлиническиеПроявленияТег]
+								</observation>
+							</entryRelationship>
+							[/КлиническиеПроявления]}}
+						</observation>
+					</entry>
+					[/АллергическиеРеакции]
+				</section>
+			</component>}}
+			{{[ЛекарственныеНазначенияЗаполнены]
+			<!--  [0..1] СЕКЦИЯ: "Медикаментозное лечение"  -->
+			<component>
+				<!--  R [1..1] -->
+				<section>
+					<!--  R [1..1] Код секции  -->
+					<code code="DRUG" codeSystem="1.2.643.5.1.13.13.99.2.197" codeSystemVersion="4.10" codeSystemName="Секции электронных медицинских документов" displayName="Медикаментозное лечение"/>
+					<!--  R [1..1] Название секции  -->
+					<title>Медикаментозное лечение</title>
+					<!--  R [1..*] Сведения о назначенном препарате  -->
+					[ЛекарственныеНазначения]
+					<entry>
+						<!--  R [1..1] -->
+						<substanceAdministration classCode="SBADM" moodCode="RQO">
+							<!--  [1..1] -->
+							<code nullFlavor="NI"/>
+							<!--  R [1..1] Сроки приема препарата  -->
+							<effectiveTime xsi:type="IVL_TS">
+								<!--  R [1..1] Дата начала приема препарата  -->
+								<low value="[ДатаНачала]"/>
+								<!--  R [1..1] Дата окончания приема препарата  -->
+								<high value="[ДатаОкончания]"/>
+							</effectiveTime>
+							<!--  R [1..1] Путь введения препарата  -->
+							[СпособПримененияТег]
+							<!--  R [1..1] Назначенный препарат  -->
+							<consumable typeCode="CSM">
+								<!--  R [1..1] -->
+								<manufacturedProduct classCode="MANU">
+									<!--  R [1..1] -->
+									<manufacturedMaterial classCode="MMAT" determinerCode="KIND">
+										<!--  [1..1] Назначенный лекарственный препарат  -->
+										<code code="[КодСМНН]" displayName="[ОписаниеСМНН]" codeSystemVersion="[ВерсияСМНН]" codeSystem="1.2.643.5.1.13.13.99.2.611" codeSystemName="Узлы СМНН. ЕСКЛП"/>
+										<!--  [0..1] Торговое наименование  -->
+									</manufacturedMaterial>
+								</manufacturedProduct>
+							</consumable>
+							<!--  R [1..*] Инструкция по применению препарата  -->
+							<entryRelationship typeCode="COMP">
+								<!--  R [1..1] -->
+								<substanceAdministration classCode="SBADM" moodCode="EVN">
+									<!--  R [1..1] Длительность приема препарата  -->
+									<effectiveTime xsi:type="IVL_TS">
+										<!--  R [1..1] Дата начала приема препарата  -->
+										<low value="[ДатаНачала]"/>
+										<!--  R [1..1] Дата прекращения приема препарата  -->
+										<high value="[ДатаОкончания]"/>
+									</effectiveTime>
+									<!--  [1..1] Кратность приема препарата  -->
+									<effectiveTime xsi:type="PIVL_TS">
+										<!--  R [1..1] Интервал приема препарата  -->
+										<period value="[ИнтервалЗначение]" unit="[ИнтервалЕдиница]">
+											<!--  R [1..1] -->
+											<translation value="[ИнтервалЗначение]" code="[ИнтервалЕдиницаКод]" codeSystem="1.2.643.5.1.13.13.11.1358" codeSystemVersion="3.22" codeSystemName="Единицы измерения" displayName="[ИнтервалЕдиницаНаименование]"/>
+										</period>
+									</effectiveTime>
+									<!--  R [1..1] Разовая доза  -->
+									<doseQuantity value="[РазоваяДозаНазначено]"/>
+									<!--  R [1..1] -->
+									<consumable typeCode="CSM">
+										<!--  R [1..1] -->
+										<manufacturedProduct classCode="MANU">
+											<!--  [1..1] -->
+											<manufacturedMaterial nullFlavor="NA"/>
+										</manufacturedProduct>
+									</consumable>
+									<!--  R [1..*] Сведения о медицинском работнике, участвовавшем в применении препарата  -->
+									{{[МедицинскиеРаботники]
+									<performer>
+										<!--  R [1..1] Дата назначения лекарственного препарата или его отмены/выполнения/контроля  -->
+										<time value="[ДатаНазначения]"/>
+										<!--  R [1..1] Роль  -->
+										<modeCode code="1" codeSystem="1.2.643.5.1.13.13.99.2.1096" codeSystemVersion="1.1" codeSystemName='Медицинские работники, участвующие в формировании документа "Лист назначений и их выполнение"' displayName="Лечащий врач (врач-специалист), сделавший назначение"/>
+										<!--  R [1..1] -->
+										<assignedEntity>
+											<!--  R [1..1] Уникальный идентификатор медицинского работника в МИС  -->
+											<id root="[Root]" extension="[Extension]"/>
+										</assignedEntity>
+									</performer>
+									[/МедицинскиеРаботники]}}
+								</substanceAdministration>
+							</entryRelationship>
+							<!--  [0..1] Сведения о реакции на применение  -->
+							<!--  [0..1] Особые указания  -->
+						</substanceAdministration>
+					</entry>
+					[/ЛекарственныеНазначения]
+				</section>
+			</component>}}
+			<!--  [0..1] СЕКЦИЯ: "Лечебное питание"  -->
+			{{[ЛечебноеПитаниеЗаполнено]
+			<component>
+				<!--  R [1..1] -->
+				<section>
+					<!--  R [1..1] Код секции  -->
+					<code code="NUTRITION" codeSystem="1.2.643.5.1.13.13.99.2.197" codeSystemVersion="4.10" codeSystemName="Секции электронных медицинских документов" displayName="Лечебное питание"/>
+					<!--  R [1..1] Название секции  -->
+					<title>Лечебное питание</title>
+					[ЛечебноеПитание]
+					<!--  R [1..*] Сведения о применении лечебного питания  -->
+					<entry>
+						<!--  R [1..1] -->
+						<act classCode="ACT" moodCode="EVN">
+							<!--  [1..1] -->
+							<code nullFlavor="OTH">
+								<!--  R [1..1] Наименование лечебного питания  -->
+								<originalText>[Наименование]</originalText>
+							</code>
+							<!--  [0..1] Примечание  -->
+							<!--  R [1..1] Сроки применения лечебного питания  -->
+							<effectiveTime>
+								<!--  R [1..1] Дата начала применения  -->
+								<low value="[ДатаНачала]"/>
+								<!--  [1..1] Дата окончания применения  -->
+								<high value="[ДатаОкончания]"/>
+							</effectiveTime>
+							{{[МедицинскиеРаботники]
+							<!--  R [1..*] Сведения о медицинском работнике, участвовавшем в лечебном питании  -->
+							<performer>
+								<!--  R [1..1] Дата назначения лечебного питания или его отмены/выполнения/контроля  -->
+								<time value="[ДатаНазначения]"/>
+								<!--  R [1..1] Роль  -->
+								<modeCode code="1" codeSystem="1.2.643.5.1.13.13.99.2.1096" codeSystemVersion="1.1" codeSystemName='Медицинские работники, участвующие в формировании документа "Лист назначений и их выполнение"' displayName="Лечащий врач (врач-специалист), сделавший назначение"/>
+								<!--  R [1..1] -->
+								<assignedEntity>
+									<!--  R [1..1] Уникальный идентификатор медицинского работника в МИС  -->
+									<id root="[Root]" extension="[Extension]"/>
+								</assignedEntity>
+							</performer>
+							[/МедицинскиеРаботники]}}
+							{{<!--  [0..1] Кратность питания  -->
+							<entryRelationship typeCode="COMP">
+								<!--  R [1..1] -->
+								<observation classCode="OBS" moodCode="EVN">
+									<!--  R [1..1] Код поля  -->
+									<code code="6031" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.15" codeSystemName="Кодируемые поля CDA документов" displayName="Кратность"/>
+									<!--  R [1..1] Значение поля  -->
+									[КратностьТег]
+								</observation>
+							</entryRelationship>}}
+							<!--  [0..1] Сведения о реакции на применение  -->
+						</act>
+					</entry>
+					[/ЛечебноеПитание]
+				</section>
+			</component>}}
+			{{[РежимЗаполнен]
+			<!--  [0..1] СЕКЦИЯ: "Режим и рекомендации" ("Режим")  -->
+			<component>
+				<!--  R [1..1] -->
+				<section>
+					<!--  R [1..1] Код секции  -->
+					<code code="REGIME" codeSystem="1.2.643.5.1.13.13.99.2.197" codeSystemVersion="4.10" codeSystemName="Секции электронных медицинских документов" displayName="Режим и рекомендации"/>
+					<!--  R [1..1] Название секции  -->
+					<title>Режим</title>
+					[Режим]
+					<!--  R [1..*] Режим  -->
+					<entry>
+						<!--  R [1..1] -->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--  R [1..1] Код поля  -->
+							<code code="9014" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.15" codeSystemName="Кодируемые поля CDA документов" displayName="Режим пребывания во время лечения"/>
+							<!--  R [1..1] Дата и время назначения  -->
+							<effectiveTime>
+								<!--  R [1..1] Дата и время начала  -->
+								<low value="[ДатаНачала]"/>
+								{{<!--  [0..1] Дата и время окончания  -->
+								<high value="[ДатаОкончания]"/>}}
+							</effectiveTime>
+							<!--  R [1..1] Значение поля  -->
+							<value xsi:type="ST">[Наименование]</value>
+							{{[МедицинскиеРаботники]
+							<!--  R [1..*] Сведения о медицинском работнике  -->
+							<performer>
+								<!--  R [1..1] Дата назначения режима или его отмены/выполнения/контроля  -->
+								<time value="[ДатаНазначения]"/>
+								<!--  R [1..1] Роль  -->
+								<modeCode code="1" codeSystem="1.2.643.5.1.13.13.99.2.1096" codeSystemVersion="1.1" codeSystemName='Медицинские работники, участвующие в формировании документа "Лист назначений и их выполнение"' displayName="Лечащий врач (врач-специалист), сделавший назначение"/>
+								<!--  R [1..1] -->
+								<assignedEntity>
+									<!--  R [1..1] Уникальный идентификатор медицинского работника в МИС  -->
+									<id root="[Root]" extension="[Extension]"/>
+								</assignedEntity>
+							</performer>
+							[/МедицинскиеРаботники]}}
+						</observation>
+					</entry>
+					[/Режим]
+				</section>
+			</component>}}
+			<!--  R [1..1] СЕКЦИЯ: "Медицинские вмешательства"  -->
+			<component>
+				<!--  R [1..1] -->
+				<section>
+					<!--  R [1..1] Код секции  -->
+					<code code="MEDINTERVENTIONS" codeSystem="1.2.643.5.1.13.13.99.2.197" codeSystemVersion="4.10" codeSystemName="Секции электронных медицинских документов" displayName="Медицинские вмешательства"/>
+					<!--  R [1..1] Название секции  -->
+					<title>Оказанные услуги</title>
+					[МедицинскиеВмешательства]
+					<!--  R [1..*] Сведения о медицинских вмешательствах  -->
+					<entry>
+						<!--  R [1..1]  -->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--  R [1..1] Код поля  -->
+							<code code="833" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="5.15" codeSystemName="Кодируемые поля CDA документов" displayName="Медицинская услуга"/>
+							<!--  [0..1] Примечание  -->
+							<!--  R [1..1] Дата и время исполнения назначения  -->
+							<effectiveTime>
+								<!--  R [1..1] Дата и время начала  -->
+								<low value="[ДатаНачала]"/>
+								{{<!--  [0..1] Дата и время окончания  -->
+								<high value="[ДатаОкончания]"/>}}
+							</effectiveTime>
+							<!--  [1..1] Медицинское вмешательство  -->
+							[УслугаТег]
+							[МедицинскиеРаботники]
+							<!--  R [1..*] Сведения о медицинском работнике  -->
+							<performer>
+								<!--  R [1..1] Дата назначения режима или его отмены/выполнения/контроля  -->
+								<time value="[ДатаНазначения]"/>
+								<!--  R [1..1] Роль  -->
+								<modeCode code="1" codeSystem="1.2.643.5.1.13.13.99.2.1096" codeSystemVersion="1.1" codeSystemName='Медицинские работники, участвующие в формировании документа "Лист назначений и их выполнение'" displayName="Лечащий врач (врач-специалист), сделавший назначение"/>
+								<!--  R [1..1] -->
+								<assignedEntity>
+									<!--  R [1..1] Уникальный идентификатор медицинского работника в МИС  -->
+									<id root="[Root]" extension="[Extension]"/>
+								</assignedEntity>
+							</performer>
+							[/МедицинскиеРаботники]
+						</observation>
+					</entry>
+					[/МедицинскиеВмешательства]
+				</section>
+			</component>
+			{{[СвязанныеДокументыЗаполнены]
+			<!--  [0..1] СЕКЦИЯ: "Связанные документы"  -->
+			<component>
+				<!--  R [1..1] -->
+				<section>
+					<!--  R [1..1] Код секции  -->
+					<code code="LINKDOCS" codeSystem="1.2.643.5.1.13.13.99.2.197" codeSystemName="Секции электронных медицинских документов" displayName="Связанные документы" codeSystemVersion="4.10"/>
+					<!--  R [1..1] Название секции  -->
+					<title>Связанные документы</title>
+					[СвязанныеДокументы]
+					<!--  R [1..*] Сведения о связанном документе  -->
+					<entry>
+						<!--  R [1..1] -->
+						<act classCode="ACT" moodCode="EVN">
+							<!--  R [1..1] Вид документа  -->
+							[ТипМДТег]
+							<!--  [0..1] Примечание к документу  -->
+							<text>[Наименование]</text>
+							<!--  R [1..1] Дата формирования документа  -->
+							<effectiveTime value="[Дата]"/>
+							<!-- [0..1] Серия документа -->{{
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<code code="11002" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="1.38" codeSystemName="Кодируемые поля CDA документов" displayName="Серия документа"/>
+									<value xsi:type="ST">[Серия]</value>
+								</observation>
+							</entryRelationship>}}
+							<!-- [0..1] Номер документа -->{{
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<code code="11003" codeSystem="1.2.643.5.1.13.13.99.2.166" codeSystemVersion="1.38" codeSystemName="Кодируемые поля CDA документов" displayName="Номер документа"/>
+									<value xsi:type="ST">[Номер]</value>
+								</observation>
+							</entryRelationship>}}
+							<!--  [0..1] Форма документа  -->
+							<!--  R [1..1] Ссылка на внешний документ  -->
+							<reference typeCode="REFR">
+								<externalDocument classCode="DOCCLIN" moodCode="EVN">
+									<id root="[Root]" extension="[Extension]"/>
+									<id {{root="1.2.643.5.1.13.13.17.1.1" extension="[ИдентификаторРЭМД] }иначе{nullFlavor="NA" }}/>
+								</externalDocument>
+							</reference>
+						</act>
+					</entry>
+					[/СвязанныеДокументы]
+				</section>
+			</component>}}
+		</structuredBody>
+	</component>
+</ClinicalDocument>
